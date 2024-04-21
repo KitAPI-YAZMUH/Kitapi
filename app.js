@@ -46,7 +46,7 @@ app.post('/formPost',(req,res)=>{
             console.log("dosya yazdirildi.");
         })
     })
-
+    res.send(`<h1>ARAMA SONUÇLARI DOSYAYA YAZILDI.</h1>`);
     res.end();
 })
 
