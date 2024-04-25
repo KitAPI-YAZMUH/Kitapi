@@ -77,4 +77,4 @@ const changeBooksCategoryInReadingList = (req, res) => {
 
 
 
-module.exports = { getAllBooksByName, getOneBooksById }
+module.exports = { getAllBooksByName, getOneBooksContentById };

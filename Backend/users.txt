@@ -1,0 +1,26 @@
+[
+  {
+    "username": "John",
+    "surname": "Smith",
+    "email": "johnsmith@example.com",
+    "password": "3f21a8490cef2bfb60a9702e9d2ddb7a805c9bd1a263557dfd51a7d0e9dfa93e"
+  },
+  {
+    "username": "Emily",
+    "surname": "Johnson",
+    "email": "emily.johnson@example.com",
+    "password": "f04559cc0959c5e74e7a40ba472cf2ebc452be300cb2e25ae7b949557ab18088"
+  },
+  {
+    "username": "Michael",
+    "surname": "Williams",
+    "email": "michael.williams@example.com",
+    "password": "ab38eadaeb746599f2c1ee90f8267f31f467347462764a24d71ac1843ee77fe3"
+  },
+  {
+    "username": "Jessica",
+    "surname": "Brown",
+    "email": "jessica.brown@example.com",
+    "password": "99f2bdf9942653ab32d9dfa0b43c72c3fbbb9679450fd965c590c224897b848a"
+  }
+]
