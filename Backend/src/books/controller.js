@@ -28,8 +28,8 @@ const getAllBooksByName = (req, res) => {
             console.log(response.body.totalItems);
         }
     });
-
 };
+
 
 // ÖNEMLİ NOT: Bu yaptığımız işlemleri yazarlar için de yapmamiz gerekiyor.
 // ÖNEMLİ NOT 2: Kullanıcılar kitapları yıldızlayabilecekler mi?

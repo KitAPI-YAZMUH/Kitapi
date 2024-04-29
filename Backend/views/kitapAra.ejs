@@ -1,0 +1,44 @@
+<!-- kitapara.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Arama Sonuçları</title>
+    <style>
+        /* CSS stilleri buraya eklenebilir */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Kitap Arama Sonuçları</h1>
+        <% if (books && books.length > 0) { %>
+            <% books.forEach(book => { %>
+                <div class="book">
+                    <h2>
+                        <%= book.volumeInfo.title %>
+                    </h2>
+                    <p><strong>ID:</strong>
+                        <%= book.id %>
+                    </p>
+                    <p><strong>kitap foto url:</strong>
+                        <%= book.volumeInfo.imageLinks.thumbnail %>
+                    </p>
+                    <p><strong>Açıklama:</strong>
+                        <%= book.volumeInfo.description %>
+                    </p>
+                    <p><strong>Yazar(lar):</strong>
+                        <%= book.volumeInfo.authors.join(', ') %>
+                    </p>
+                </div>
+                <% }); %>
+                    <% } else { %>
+                        <p>Aradığınız kriterlere uygun kitap bulunamadı.</p>
+                        <% } %>
+    </div>
+</body>
+
+</html>

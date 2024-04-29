@@ -4,9 +4,10 @@ const bodyParser = require('body-parser'); // Gelen isteklerdeki verileri okumak
 const crypto = require('crypto-js'); // Şifreleme işlemleri için crypto-js kullanılır
 const fs = require('fs'); // Dosya işlemleri için fs modülü kullanılır
 const path = require('path'); // Dosya yollarını düzenlemek için path modülü kullanılır
+const request = require('request');
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Sunucu portu belirlenir, varsayılan olarak 3000 kullanılır
+const PORT = process.env.PORT || 5000; // Sunucu portu belirlenir, varsayılan olarak 3000 kullanılır
 
 // Frontend dosyalarının yolu belirlenir
 const frontendDirectory = path.join(__dirname, '..', 'Frontend');
@@ -16,6 +17,11 @@ app.use(express.static(frontendDirectory));
 // Gelen isteklerdeki form verilerini almak için body-parser kullanılır
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// EJS view engine'i ayarla
+app.set('view engine', 'ejs');
+
+
 
 // Ana sayfa
 app.get('/', (req, res) => {
@@ -94,6 +100,31 @@ app.get('/login-successful', (req, res) => {
     res.sendFile(path.join(frontendDirectory, 'login-successful.html')); // Giriş başarılı sayfası dosyası gönderilir
 });
 
+// app.get('/kitapAra', (req, res) => {
+//     res.sendFile(path.join(frontendDirectory, 'kitapAra.html')); // Giriş başarılı sayfası dosyası gönderilir
+// });
+
+
+
+app.post('/kitapAra', (req, res) => {
+    const { bookSearch } = req.body;
+    console.log("bookSearch: " + bookSearch);
+
+    const url = `https://www.googleapis.com/books/v1/volumes?q=${bookSearch}&key=AIzaSyCBPWsVkUF1AxRpuh1oCIZsAZ95reiGGG8`;
+
+    request({ url: url, json: true }, (error, response, body) => {
+        if (error) {
+            console.error(error);
+            res.status(500).send('İstek sırasında bir hata oluştu');
+        } else if (body.totalItems == 0) {
+            console.log("Girilen kitap bilgisi bulunamadı.");
+            res.status(404).send('Girilen kitap bilgisi bulunamadı');
+        } else {
+            // EJS view engine'i kullanarak kitapara.ejs sayfasını render et
+            res.render('kitapAra', { books: body.items });
+        }
+    });
+});
 // Kitap rotaları için /api/v1/books endpoint'i kullanılır
 app.use('/api/v1/books', bookRouters);
 
