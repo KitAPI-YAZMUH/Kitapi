@@ -1,5 +1,5 @@
  <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
     <head>
         <meta charset="utf-8">
@@ -40,61 +40,8 @@
         </div>
         <!-- Spinner End -->
 
-
-         <!-- Navbar start -->
-         <div class="container-fluid fixed-top">
-            <div class="container topbar bg-primary d-none d-lg-block">
-              <div class="d-flex justify-content-between">
-                <div class="top-info ps-2">
-                  <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#"
-                      class="text-white">Bursa,Türkiye</a></small>
-                  <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#"
-                      class="text-white">Btu@edu.tr</a></small>
-                </div>
-                <div class="top-link pe-2">
-                  <a href="#" class="text-white"><small class="text-white mx-2">Giriş Yap</small>/</a>
-                  <a href="#" class="text-white"><small class="text-white mx-2">Üye Ol</small></a>
-        
-                </div>
-              </div>
-            </div>
-          <div class="container px-0">
-                <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                    <a href="index.html" class="navbar-brand">
-                    <h1 class="logo"><strong>KitAPI</strong></h1>
-                    </a>
-                    <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars text-primary"></span>
-                    </button>
-                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
-                        <div class="navbar-nav mx-auto">
-                            <a href="index.html" class="nav-item nav-link ">Anasayfa</a>
-                            <a href="kitaplik.html" class="nav-item nav-link">Kitaplar</a>
-                            <div class="nav-item dropdown">
-                              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Listelerim</a>
-                              <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                  <a href="cart.html" class="dropdown-item">Okudum</a>
-                                  <a href="cart.html" class="dropdown-item">Okuyorum</a>
-                                  <a href="cart.html" class="dropdown-item">Okuyacağım</a>
-                              </div>
-                          </div>
-                            <a href="prompt.html" class="nav-item nav-link active">KitAPI'ye sor</a>
-                            <a href="contact.html" class="nav-item nav-link">İletişim</a>
-                            
-                          </div>
-                          <div class="d-flex m-3 me-0">
-                            <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
-                              data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
-                            <a href="chackout.html" class="my-auto" id="signup2">
-                                <i class="fas fa-user fa-2x"></i>
-                            </a>
-                        </div>
-                    </div>
-            </nav>
-            </div>
-        </div>
-        <!-- Navbar End -->
-
+        <!-- Header -->
+        <%- include('partials/header', { activePage: 'ask' }) %>
 
         <!-- Modal Search Start Kitap arama --> 
         <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

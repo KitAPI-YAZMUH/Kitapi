@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitap Arama Sonuçları</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Kitap Arama Sonuçları</h1>
+        <% if (books && books.length > 0) { %>
+            <% books.forEach(book => { %>
+                <div class="book">
+                    <h2>
+                        <%= book.volumeInfo.title || 'Başlık bulunamadı' %>
+                    </h2>
+                    <p><strong>ID:</strong>
+                        <%= book.id || 'ID bulunamadı' %>
+                    </p>
+                    <p><strong>Kitap Foto URL:</strong>
+                        <%= book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : 'Resim bulunamadı' %>
+                    </p>
+                    <p><strong>Açıklama:</strong>
+                        <%= book.volumeInfo.description || 'Açıklama bulunamadı' %>
+                    </p>
+                    <p><strong>Yazar(lar):</strong>
+                        <%= book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Yazar bilgisi bulunamadı' %>
+                    </p>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>Aradığınız kriterlere uygun kitap bulunamadı.</p>
+        <% } %>
+    </div>
+</body>
+
+</html>
