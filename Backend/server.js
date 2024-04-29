@@ -20,15 +20,49 @@ app.use(bodyParser.json());
 
 // EJS view engine'i ayarla
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '..', 'Frontend'));
+// app.set('views', __dirname + '../Frontend');
+
+
+// Header ve footer dosyalarını dahil et
+app.use((req, res, next) => {
+    res.locals.header = path.join(__dirname, '..', 'Frontend', 'partials', 'header.ejs'); // header.ejs dosyasını kullan
+    res.locals.footer = path.join(__dirname, '..', 'Frontend', 'partials', 'footer.ejs'); // footer.ejs dosyasını kullan
+    next();
+});
 
 
 
 // Ana sayfa
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, frontendDirectory, 'index.html')); // Ana sayfa dosyası gönderilir
+    res.render('index'); // index.ejs dosyasını render et
+    //res.sendFile(path.join(__dirname, frontendDirectory, 'index.html')); // Ana sayfa dosyası gönderilir
 });
 
-// Kayıt olma sayfası
+app.get('/index', (req, res) => {
+    res.redirect('/'); // / adresine yönlendirme yap
+});
+
+app.get('/kitaplik', (req, res) => {
+    res.render('kitaplik'); // kitaplik.ejs dosyasını render et
+});
+
+app.get('/cart', (req, res) => {
+    res.render('cart'); // cart.ejs dosyasını render et
+});
+
+
+app.get('/prompt', (req, res) => {
+    res.render('prompt'); // prompt.ejs dosyasını render et
+});
+
+
+app.get('/contact', (req, res) => {
+    res.render('contact'); // contact.ejs dosyasını render et
+});
+
+
+// Kayıt olma sayfası   
 app.get('/signup', (req, res) => {
     res.sendFile(path.join(frontendDirectory, 'signup.html')); // Kayıt olma sayfası dosyası gönderilir
 });
