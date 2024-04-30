@@ -11,3 +11,6 @@ logs/
 
 # Paket yöneticisi dosyaları
 package-lock.json
+
+# Hassas bilgiler içeren .env dosyası
+.env
