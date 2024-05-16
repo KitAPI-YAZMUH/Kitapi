@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giriş Yap</title>
-    <link rel="stylesheet" href="style.css"> <!-- Harici stil dosyasını bağlama -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Harici stil dosyasını bağlama -->
 </head>
 
 <body>
@@ -14,19 +15,25 @@
         <p>Hesabınıza giriş yapmak için e-posta adresinizi ve şifrenizi girin.</p>
 
         <!-- Giriş formu -->
-        <form action="/login" method="post">
-            <label for="email">E-Posta Adresi:</label> <!-- E-posta alanı etiketi -->
-            <input type="email" id="email" name="email" required> <!-- E-posta giriş alanı -->
+        <form action="/user/login" method="post">
+            <label for="email">E-Posta Adresi:</label>
+            <!-- E-posta alanı etiketi -->
+            <input type="email" id="email" name="email" required>
+            <!-- E-posta giriş alanı -->
 
-            <label for="password">Şifre:</label> <!-- Şifre alanı etiketi -->
-            <input type="password" id="password" name="password" required> <!-- Şifre giriş alanı -->
+            <label for="password">Şifre:</label>
+            <!-- Şifre alanı etiketi -->
+            <input type="password" id="password" name="password" required>
+            <!-- Şifre giriş alanı -->
 
-            <button type="submit">Giriş Yap</button> <!-- Giriş yap butonu -->
+            <button type="submit">Giriş Yap</button>
+            <!-- Giriş yap butonu -->
         </form>
 
-        <p>Hesabınız yok mu? <a href="/signup">Kayıt Ol</a></p> <!-- Kayıt olma linki -->
+        <p>Hesabınız yok mu? <a href="/signup">Kayıt Ol</a></p>
+        <!-- Kayıt olma linki -->
     </div>
-    
+
 </body>
 
 </html>

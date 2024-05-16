@@ -1,5 +1,5 @@
 const { Pool } = require('pg');
-require('dotenv').config(); // .env dosyasındaki ortam değişkenlerini yüklemek için dotenv modülünü kullanın
+require('dotenv').config();
 
 const pool = new Pool({
     user: process.env.DB_USER,
@@ -44,6 +44,47 @@ pool.query(
             );
         } else {
             console.log('Users tablosu zaten mevcut');
+        }
+    }
+);
+
+pool.query(
+    `SELECT EXISTS (
+        SELECT 1
+        FROM   information_schema.tables 
+        WHERE  table_schema = 'public'
+        AND    table_name = 'kitap_listelerim'
+    );`,
+    (error, results) => {
+        if (error) {
+            console.error('Tablo varlığı kontrol edilirken bir hata oluştu:', error);
+            return;
+        }
+        
+        const tableExists = results.rows[0].exists;
+        if (!tableExists) {
+            // Tablo yoksa oluştur
+            pool.query(
+                `CREATE TABLE kitap_listelerim (
+                    id_kitap SERIAL PRIMARY KEY,
+                    kitap_google_id text,
+                    kullanici_id integer,
+                    kitap_durum integer,
+                    ekleme_zamani date,
+                    kitap_adi text,
+                    yazar_adi text,
+                    resim_url text
+                );`,
+                (error, results) => {
+                    if (error) {
+                        console.error('Kitap tablosu oluşturulurken bir hata oluştu:', error);
+                        return;
+                    }
+                    console.log('Kitaplar tablosu oluşturuldu');
+                }
+            );
+        } else {
+            console.log('Kitaplar tablosu zaten mevcut');
         }
     }
 );

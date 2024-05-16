@@ -1,10 +1,10 @@
 const { Router } = require('express');
-const controller = require("./controller")
+const { addToReadingList, searchTheBook } = require("./controller")
 
 
 const router = Router();
 
-router.get('/', controller.getAllBooksByName);
-
+router.post('/addList', addToReadingList);
+router.post('/kitapAra',searchTheBook);
 
 module.exports = router;

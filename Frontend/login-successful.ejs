@@ -17,28 +17,19 @@
 </head>
 
 <body>
-    <h2>Giriş Başarılı</h2>
+    <h2>Çıkış Başarılı</h2>
 
     <!-- Hoşgeldiniz mesajı -->
-    <p>Hoş geldiniz, <span id="username"></span>!</p>
-    <!-- Kullanıcı bilgileri -->
-    <div class="user-info">
-        <p>Adı: <span id="name"></span></p>
-        <p>Soyadı: <span id="surname"></span></p>
-        <p>Email: <span id="email"></span></p>
-    </div>
+    <p>Hoşçakalın!<span id="username"></span></p>
     <!-- JavaScript ile kullanıcı bilgilerini doldurma -->
     <script>
         // URL'den parametreleri al
         const params = new URLSearchParams(window.location.search);
         const username = params.get('username');
-        const surname = params.get('surname');
-        const email = params.get('email');
         // HTML içinde ilgili elementlere değerleri yerleştirme
         document.getElementById('username').textContent = username;
         document.getElementById('name').textContent = username;
-        document.getElementById('surname').textContent = surname;
-        document.getElementById('email').textContent = email;
+        
     </script>
     
 </body>

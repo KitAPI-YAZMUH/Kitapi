@@ -26,7 +26,6 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -38,6 +37,7 @@
 
     <!-- Header -->
     <%- include('partials/header', { activePage: 'books' }) %>
+
         <!-- Modal Search Start -->
         <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
@@ -51,7 +51,8 @@
                     <div class="modal-body d-flex align-items-center">
                         <div class="input-group w-75 mx-auto d-flex">
                             <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1" />
-                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i
+              ></span>
                         </div>
                     </div>
                 </div>
@@ -77,14 +78,14 @@
 
 
                                 <!-- buraya form ekledik -->
-                                <form action="/book/kitapAra" method="post">
+                                <!-- <form action="/kitapAra" method="post">
 
                                     <div class="input-group w-100 mx-auto d-flex">
                                         <input type="search" class="form-control p-3" placeholder="Kitap adı girin" aria-describedby="search-icon-1" id="bookSearch" name="bookSearch" required/>
                                         <button type="submit"><span id="search-icon-1 " class="input-group-text p-3 "><i class="fa fa-search "></i></span></button>
                                     </div>
 
-                                </form>
+                                </form> -->
 
 
                             </div>
@@ -97,7 +98,7 @@
                     <option value="saab ">En Çok Satan</option>
                     <option value="opel ">Yeni Çıkanlar</option>
                     <option value="audi ">En Çok Eklenen</option>
-                        </select>
+                  </select>
                                 </div>
                             </div>
                         </div>
@@ -144,120 +145,72 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-lg-9 ">
                                 <div class="row g-4 justify-content-center ">
 
-                                    <% if (books && books.length > 0) { %>
-                                        <% books.forEach(book => { %>
-                                            <div class="col-md-6 col-lg-6 col-xl-4 ">
-                                                <div class="rounded position-relative fruite-item ">
-                                                    <a href="book-details ">
-                                                        <div class="fruite-img ">
-                                                            <img src="<%= book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : 'img/icerik-gorseli-bulunamadi-beyaz.png' %>" class="img-fluid w-100 rounded-top " alt="" />
-                                                        </div>
-                                                    </a>
-                                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute " style="top: 10px; left: 10px "></div>
-                                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom ">
-                                                        <a href="book-details ">
-                                                            <h4>
-                                                                <%= book.volumeInfo.title || 'Başlık bulunamadı' %>
-                                                            </h4>
-                                                        </a>
-                                                        <p class="text-dark fs-5 fw-bold mb-0 ">
-                                                            <%= book.volumeInfo.authors || 'Yazar bulunamadı' %>
-                                                        </p>
-                                                        <div class="d-flex justify-content-between flex-lg-wrap ">
-                                                            <p>
-                                                                <%= book.volumeInfo.publisher || 'Yayınevi bulunamadı' %>
-                                                            </p>
-                                                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary" data-book='<%= JSON.stringify(book) %>' onclick="addMyList(event)">Listelerime Ekle</a>
-                                                        </div>
-                                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-xl-4 ">
+                                        <div class="rounded position-relative fruite-item ">
+                                            <a href="/book-details ">
+                                                <div class="fruite-img ">
+                                                    <img src="img/martin-eden.jpg " class="img-fluid w-100 rounded-top " alt=" " />
+                                                </div>
+                                            </a>
+                                            <div class="text-white bg-secondary px-3 py-1 rounded position-absolute " style="top: 10px; left: 10px "></div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom ">
+                                                <a href="/book-details ">
+                                                    <h4>Martin Eden</h4>
+                                                </a>
+                                                <p class="text-dark fs-5 fw-bold mb-0 ">Jack London</p>
+                                                <div class="d-flex justify-content-between flex-lg-wrap ">
+                                                    <p>Türkiye İş Bankası Yayınları</p>
+                                                    <a href="# " class="btn border border-secondary rounded-pill px-3 text-primary "><i class="fa fa-shopping-bag me-2 text-primary "></i
+                            >Listelerime Ekle</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                    
+
+                 
+                  <div class="col-12 ">
+                    <div class="pagination d-flex justify-content-center mt-5 ">
+                      <a href="# " class="rounded ">&laquo;</a>
+                                                    <a href="# " class="active rounded ">1</a>
+                                                    <a href="# " class="rounded ">2</a>
+                                                    <a href="# " class="rounded ">3</a>
+                                                    <a href="# " class="rounded ">4</a>
+                                                    <a href="# " class="rounded ">5</a>
+                                                    <a href="# " class="rounded ">6</a>
+                                                    <a href="# " class="rounded ">&raquo;</a>
                                                 </div>
                                             </div>
-                                            <% }); %>
-                                                <% } else { %>
-                                                    <p>Aradığınız kriterlere uygun kitap bulunamadı.</p>
-                                                    <% } %>
-
-
-
-                                                        <div class="col-12 ">
-                                                            <div class="pagination d-flex justify-content-center mt-5 ">
-                                                                <a href="# " class="rounded ">&laquo;</a>
-                                                                <a href="# " class="active rounded ">1</a>
-                                                                <a href="# " class="rounded ">2</a>
-                                                                <a href="# " class="rounded ">3</a>
-                                                                <a href="# " class="rounded ">4</a>
-                                                                <a href="# " class="rounded ">5</a>
-                                                                <a href="# " class="rounded ">6</a>
-                                                                <a href="# " class="rounded ">&raquo;</a>
-                                                            </div>
-                                                        </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Fruits Shop End-->
+                <!-- Fruits Shop End-->
 
-        <!-- Footer -->
-        <%- include('partials/footer') %>
+                <!-- Footer -->
+                <%- include('partials/footer') %>
 
-            <!-- JavaScript Libraries -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js "></script>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js "></script>
-            <script src="lib/easing/easing.min.js "></script>
-            <script src="lib/waypoints/waypoints.min.js "></script>
-            <script src="lib/lightbox/js/lightbox.min.js "></script>
-            <script src="lib/owlcarousel/owl.carousel.min.js "></script>
+                    <!-- JavaScript Libraries -->
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js "></script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js "></script>
+                    <script src="lib/easing/easing.min.js "></script>
+                    <script src="lib/waypoints/waypoints.min.js "></script>
+                    <script src="lib/lightbox/js/lightbox.min.js "></script>
+                    <script src="lib/owlcarousel/owl.carousel.min.js "></script>
 
-            <!-- Template Javascript -->
-            <script src="js/main.js "></script>
-            <script>
-
-                function addMyList(event, book) {
-                    event.preventDefault();
-                    var bookData = JSON.parse(event.target.dataset.book);
-                    console.log(bookData); // Bu kısım server tarafının konsolunda değil, client yani 
-                    // browser tarafdının konsolunda yaazzıyor. Bunlar js kokdu çünkü
-                    console.log(typeof(bookData));
-
-                    $.ajax({
-                        type: "POST",
-                        url: "/book/addList",
-                        data: bookData,
-                        success: function(data) {
-
-                            if (data.success == true) {
-                                console.log(data.success);
-                                
-                                Swal.fire({
-                                    title: "Kayıt Başarılı",
-                                    text: "İyi Okumalar!",
-                                    icon: "success"
-                                });
-
-                            } else if ((data.success == false)) {
-
-                                console.log("burdayımm2");
-                                Swal.fire({
-                                    title: "Kayıt Başarısız",
-                                    text: "Bu kitap daha önce eklenmiş !",
-                                    icon: "error"
-                                });
-
-                            } else {
-                                alert("alert e düşüüüü.")
-                            }
-                        }
-                    })
-                }
-            </script>
+                    <!-- Template Javascript -->
+                    <script src="js/main.js "></script>
 </body>
-
-</html>
 
 </html>
