@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Başarılı</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Stil için CSS */
+        .user-info {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Çıkış Başarılı</h2>
+
+    <!-- Hoşgeldiniz mesajı -->
+    <p>Hoşçakalın!<span id="username"></span></p>
+    <!-- JavaScript ile kullanıcı bilgilerini doldurma -->
+    <script>
+        // URL'den parametreleri al
+        const params = new URLSearchParams(window.location.search);
+        const username = params.get('username');
+        // HTML içinde ilgili elementlere değerleri yerleştirme
+        document.getElementById('username').textContent = username;
+        document.getElementById('name').textContent = username;
+        
+    </script>
+    
+</body>
+
+</html>

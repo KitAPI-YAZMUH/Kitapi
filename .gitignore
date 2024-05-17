@@ -1,0 +1,16 @@
+# Geçici dosyalar
+node_modules/
+.tmp/
+
+# Test dosyaları
+test/
+*.spec.js
+
+# Log dosyaları
+logs/
+
+# Paket yöneticisi dosyaları
+package-lock.json
+
+# Hassas bilgiler içeren .env dosyası
+.env

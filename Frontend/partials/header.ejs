@@ -1,0 +1,119 @@
+<% if (typeof username !== 'undefined' && username) { %>
+    <nav>
+        <!-- Navbar start -->
+        <div class="container-fluid fixed-top">
+            <div class="container topbar bg-primary d-none d-lg-block">
+                <div class="d-flex justify-content-between">
+                    <div class="top-info ps-2">
+                        <small class="me-3">
+                        <i class="fas fa-map-marker-alt me-2 text-secondary"></i>
+                        <a href="#" class="text-white">Bursa,Türkiye</a>
+                    </small>
+                        <small class="me-3">
+                        <i class="fas fa-envelope me-2 text-secondary"></i>
+                        <a href="#" class="text-white">Btu@edu.tr</a>
+                    </small>
+                    </div>
+                    <div class="top-link pe-2">
+                        <a href="/login-successful" class="text-white">
+                            <small class="text-white mx-2">Çıkış Yap</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container px-0">
+                <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                    <a href="/index" class="navbar-brand">
+                        <h1 class="logo"><strong>KitAPI</strong></h1>
+                    </a>
+                    <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                        <div class="navbar-nav mx-auto">
+                            <a href="/index" class="nav-item nav-link <%= activePage === 'home' ? 'active' : '' %>">Anasayfa</a>
+                            <a href="/kitaplik" class="nav-item nav-link <%= activePage === 'books' ? 'active' : '' %>">Kitaplar</a>
+                            <a href="/cart" class="nav-item nav-link <%= activePage === 'lists' ? 'active' : '' %>">Listelerim</a>
+                            <a href="/prompt" class="nav-item nav-link <%= activePage === 'ask' ? 'active' : '' %>">KitAPI'ye sor</a>
+                            <a href="/contact" class="nav-item nav-link <%= activePage === 'contact' ? 'active' : '' %>">İletişim</a>
+                        </div>
+                        <div>
+                            <form action="/book/kitapAra" method="post">
+                                <div class="input-group w-100 mx-auto d-flex">
+                                    <input type="search" class="form-control p-3" placeholder="Kitap adı girin" aria-describedby="search-icon-1" id="bookSearch" name="bookSearch" required/>
+                                    <button type="submit"><span id="search-icon-1 " class="btn-search btn border border-secondary btn-md-square bg-white me-4"><i class="fa fa-search "></i></span></button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="d-flex m-3 me-0">
+                            <!-- <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal">
+                            <i class="fas fa-search text-primary"></i>
+                        </button> -->
+                            <a href="/chackout" class="my-auto" id="signup2">
+                                <i class="fas fa-user fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+    </nav>
+<% } else { %>
+    <nav>
+        <!-- Navbar start -->
+        <div class="container-fluid fixed-top">
+            <div class="container topbar bg-primary d-none d-lg-block">
+                <div class="d-flex justify-content-between">
+                    <div class="top-info ps-2">
+                        <small class="me-3">
+                        <i class="fas fa-map-marker-alt me-2 text-secondary"></i>
+                        <a href="#" class="text-white">Bursa,Türkiye</a>
+                    </small>
+                        <small class="me-3">
+                        <i class="fas fa-envelope me-2 text-secondary"></i>
+                        <a href="#" class="text-white">Btu@edu.tr</a>
+                    </small>
+                    </div>
+                    <div class="top-link pe-2">
+                        <a href="/login" class="text-white">
+                            <small class="text-white mx-2">Giriş Yap</small>
+                        </a>
+                        /
+                        <a href="/signup" class="text-white">
+                            <small class="text-white mx-2">Üye Ol</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="container px-0">
+                <nav class="navbar navbar-light bg-white navbar-expand-xl">
+                    <a href="/index" class="navbar-brand">
+                        <h1 class="logo"><strong>KitAPI</strong></h1>
+                    </a>
+                    <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                    <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
+                        <div class="navbar-nav mx-auto">
+                            <a href="/index" class="nav-item nav-link">Anasayfa</a>
+                            <a href="/kitaplik" class="nav-item nav-link">Kitaplar</a>
+                            <a href="/cart" class="nav-item nav-link">Listelerim</a>
+                            <a href="/prompt" class="nav-item nav-link">KitAPI'ye sor</a>
+                            <a href="/contact" class="nav-item nav-link">İletişim</a>
+                        </div>
+                        <div class="d-flex m-3 me-0">
+                            <!-- <button class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4" data-bs-toggle="modal" data-bs-target="#searchModal">
+                            <i class="fas fa-search text-primary"></i>
+                        </button> -->
+                            <a href="/chackout" class="my-auto" id="signup2">
+                                <i class="fas fa-user fa-2x"></i>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!-- Navbar End -->
+    </nav>
+<% } %>

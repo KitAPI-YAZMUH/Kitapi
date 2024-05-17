@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>KitAPI</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="keywords" />
+    <meta content="" name="description" />
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@600;800&display=swap" rel="stylesheet" />
+
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Header -->
+    <%- include('partials/header', { activePage: 'home' }) %>
+
+        <!-- Modal Search Start -->
+        <!-- <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content rounded-0">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            Kitap ismi ile ara
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center">
+                        <div class="input-group w-75 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1" />
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- Modal Search End -->
+
+        <!-- Hero Start -->
+        <div class="container-fluid py-5 mb-5 hero-header">
+            <div class="container py-5">
+                <div class="row g-5 align-items-center">
+                    <div class="col-md-12 col-lg-12">
+
+
+                        <h4 class="mb-3 text-secondary">Yeni ori Kitabınla Tanış</h4>
+                        <h1 class="mb-5 display-3 text-primary">
+                            Hayallerinizdeki Kitapları Keşfedin!
+                        </h1>
+                        <div class="position-relative mx-auto">
+                            <input class="form-control border-2 border-secondary w-100 py-3 px-4 rounded-pill" type="number" id="search" placeholder="AI'ya sormak için buraya yaz." />
+                            <button type="submit" class="btn btn-primary border-0.5 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 0">
+              Sohbet et
+            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- Hero End -->
+        <!-- Modal prompt -->
+        <div class="modal fade" id="promtModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" style="max-width: 410px;">
+                <!-- Login pencere genisligi -->
+                <div class="modal-content">
+
+                    <div style="text-align: end; margin-top: 10px;">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="wrapper">
+                        <div class="title-text">
+                            <div class="title login">Giriş Yap</div>
+                            <div class="title signup">Üye Ol</div>
+                        </div>
+                        <div class="form-container">
+                            <div class="slide-controls">
+                                <input type="radio" name="slide" id="login" checked>
+                                <input type="radio" name="slide" id="signup">
+                                <label for="login" class="slide login">Login</label>
+                                <label for="signup" class="slide signup">Signup</label>
+                                <div class="slider-tab"></div>
+                            </div>
+                            <div class="form-inner">
+                                <form action="/user/login" method="POST" class="login">
+                                    <div class="field">
+                                        <input type="email" name = "email" placeholder="Email Address" required>
+                                    </div>
+                                    <div class="field">
+                                        <input type="password" name = "password" placeholder="Password" required>
+                                    </div>
+                                    <div class="pass-link"><a href="#">Forgot password?</a></div>
+                                    <div class="field btn">
+                                        <div class="btn-layer"></div>
+                                        <input type="submit" value="Login">
+                                    </div>
+                                    <div class="signup-link">Not a member? <a href="">Signup now</a></div>
+                                </form>
+                                <form action="/user/signup" method="POST" class="signup">
+                                    <div class="field">
+                                        <input type="text" placeholder="Email Address" required>
+                                    </div>
+                                    <div class="field">
+                                        <input type="password" placeholder="Password" required>
+                                    </div>
+                                    <div class="field">
+                                        <input type="password" placeholder="Confirm password" required>
+                                    </div>
+                                    <div class="field btn">
+                                        <div class="btn-layer"></div>
+                                        <input type="submit" value="Signup">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <!-- Bootstrap JS Bundle -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+        <!-- JavaScript Kodu -->
+        <script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var popupMsg = "<%= msg %>"; // Sunucudan gelen mesajı al
+            if (popupMsg.trim() !== "") { // Mesaj boş değilse pop-up göster
+                var newPopup = document.createElement('div');
+                newPopup.classList.add('custom-popup');
+                newPopup.innerHTML = '<span class="close-btn">&times;</span><div class="popup-content">' + popupMsg + '</div>';
+                document.body.appendChild(newPopup);
+                
+                // Kapatma düğmesine tıklandığında pop-up'ı kapat
+                var closeButton = newPopup.querySelector('.close-btn');
+                closeButton.addEventListener('click', function() {
+                    newPopup.style.display = 'none';
+                });
+
+                setTimeout(function() {
+                    newPopup.style.display = 'none'; // Popup'ı belirli bir süre sonra kapat
+                }, 5000); // 5000 milisaniye (5 saniye) sonra kapat
+            }
+        });
+
+            document.addEventListener("DOMContentLoaded", function() {
+                var search = document.getElementById('search');
+                var modal = new bootstrap.Modal(document.getElementById('promtModal'));
+
+                search.addEventListener('click', function() {
+                    modal.show();
+                });
+            });
+
+            document.addEventListener("DOMContentLoaded", function() {
+                var signup2 = document.getElementById('signup2');
+                var modal = new bootstrap.Modal(document.getElementById('promtModal'));
+
+                signup2.addEventListener('click', function() {
+                    modal.show();
+                });
+            });
+
+
+            const loginText = document.querySelector(".title-text .login");
+            const loginForm = document.querySelector("form.login");
+            const loginBtn = document.querySelector("label.login");
+            const signupBtn = document.querySelector("label.signup");
+            const signupLink = document.querySelector("form .signup-link a");
+            signupBtn.onclick = (() => {
+                loginForm.style.marginLeft = "-50%";
+                loginText.style.marginLeft = "-50%";
+            });
+            loginBtn.onclick = (() => {
+                loginForm.style.marginLeft = "0%";
+                loginText.style.marginLeft = "0%";
+            });
+            signupLink.onclick = (() => {
+                signupBtn.click();
+                return false;
+            });
+        </script>
+
+
+        <!-- JavaScript Libraries -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/lightbox/js/lightbox.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+</body>
+
+</html>

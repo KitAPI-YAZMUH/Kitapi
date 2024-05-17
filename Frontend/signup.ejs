@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Harici stil dosyasını bağlama -->
+</head>
+
+<body>
+    <div class="signup-form">
+        <h2>Kayıt Ol</h2>
+        <p>Yeni bir hesap oluşturmak için bilgilerinizi girin.</p>
+
+        <!-- Kayıt formu -->
+        <form action="/user/signup" method="post">
+            <div class="form-group">
+                <label for="username">Kullanıcı Adı:</label>
+                <!-- Kullanıcı adı alanı etiketi -->
+                <input type="text" id="username" name="username" required>
+                <!-- Kullanıcı adı giriş alanı -->
+            </div>
+
+            <div class="form-group">
+                <label for="surname">Soyadı:</label>
+                <!-- Soyadı alanı etiketi -->
+                <input type="text" id="surname" name="surname" required>
+                <!-- Soyadı giriş alanı -->
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-Posta Adresi:</label>
+                <!-- E-posta alanı etiketi -->
+                <input type="email" id="email" name="email" required>
+                <!-- E-posta giriş alanı -->
+            </div>
+
+            <div class="form-group">
+                <label for="password">Şifre:</label>
+                <!-- Şifre alanı etiketi -->
+                <input type="password" id="password" name="password" required>
+                <!-- Şifre giriş alanı -->
+            </div>
+
+            <button type="submit">Kayıt Ol</button>
+            <!-- Kayıt ol butonu -->
+        </form>
+
+        <p>Zaten hesabınız var mı? <a href="/login">Giriş Yap</a></p>
+        <!-- Giriş yap linki -->
+
+    </div>
+</body>
+
+</html>
