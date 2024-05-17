@@ -6,7 +6,6 @@ const {
     getBooksPage,
     getCartsPage,
     getContactPage,
-    getcheckOutPage,
     getTestPage,
     getPromptPage,
     routeMain,
@@ -14,11 +13,12 @@ const {
     signSuccess,
     getSignupPage,
     getLoginPage,
-    getBookDetails,
+    getBookDetails
+    
 } = require("./controller");
 
 const { authMiddleware, logMiddleware } = require('../middlewares/authMiddlewares');
-const {getBookById} = require('../books/controller')
+const {getBookById} = require('../books/controller');
 
 router.get('/', getMainPage)
 router.get('/index', routeMain)
@@ -27,7 +27,6 @@ router.get('/kitaplik', authMiddleware,getBooksPage)
 router.get('/cart',  authMiddleware,getCartsPage)
 router.get('/prompt', authMiddleware, getPromptPage)
 router.get('/contact', getContactPage)
-router.get('/chackout',  authMiddleware,getcheckOutPage)
 router.get('/testimonial',  authMiddleware,getTestPage)
 router.get('/book-details', authMiddleware, getBookById, getBookDetails)
 

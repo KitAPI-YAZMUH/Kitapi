@@ -54,11 +54,9 @@ app.use('/user', userLogin); // login ve signup işlemleri
 app.use('/', showPages, userRoutes, chatRoutes);
 app.use('/book', bookRoutes);
 
-// Ana sayfa
-
-app.get('/404', (req, res) => {
-    res.render('404'); // 404.ejs dosyasını render et
-});
+app.use((req,res)=>{ // olmayan bir sayfa arandığında burası çalışacak. en alta koymak gerekli bunu
+    return res.render('404');
+})
 
 // Sunucu belirlenen portta çalıştırılır
 app.listen(PORT, () => {
