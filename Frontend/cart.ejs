@@ -105,6 +105,7 @@
                                 <th scope="col">Adı</th>
                                 <th scope="col">Yazar</th>
                                 <th scope="col">Yayınevi</th>
+                                <th scope="col">Kitap Durumu</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -133,10 +134,13 @@
                                             <button class="btn btn-md rounded-circle bg-light border mt-4">
                                                 <i class="fa text-success">Okuyacağım</i>
                                             </button>
+                                            
+                                                <button class="btn btn-md rounded-circle bg-light border mt-4" >
+                                                    <i class="fa fa-times text-danger">Listeden Kaldır</i>
+                                                </button>
+                                            
                                         </td>
-                                        <td>
-                                            <p class="mb-0 mt-4">Listeden Kaldır</p>
-                                        </td>
+                                        
                                     </tr>
                                 <% }); %>
                             <% } else { %>
@@ -201,15 +205,22 @@
                                             <p class="mb-0 mt-4"> ${book.kitap_adi} </p>
                                         </td>
                                         <td>
-                                            <button class="btn btn-md rounded-circle bg-light border mt-4">
-                                                <i class="fa text-danger">Okuyorum</i>
-                                            </button>
-                                            <button class="btn btn-md rounded-circle bg-light border mt-4">
-                                                <i class="fa text-success">Okuyacağım</i>
-                                            </button>
+                                            <button class="btn btn-md rounded-circle bg-light border mt-4" >
+                                        <i class="fa fa-book-open text-success"></i>
+                                        <i>Okuyorum</i>
+                                    </button>
+                                    <button class="btn btn-md rounded-circle bg-light border mt-4" >
+                                        <i class="fa fa-check text-success"></i>
+                                        <i>Okudum</i>
+                                    </button>
                                         </td>
                                         <td>
-                                            <p class="mb-0 mt-4">Listeden Kaldır</p>
+                                           
+                                    <button class="btn btn-md rounded-circle bg-light border mt-4" >
+                                        <i class="fa fa-times text-danger"></i>
+                                        <i>Listeden Kaldır</i>
+                                    </button>
+                                           
                                         </td>
                                     </tr>`
                                 });
