@@ -53,9 +53,6 @@ app.use((req, res, next) => { // Bunu yazmamızn sebebi session bilgilerini her 
 app.use('/user', userLogin); // login ve signup işlemleri
 app.use('/', showPages, userRoutes, chatRoutes);
 app.use('/book', bookRoutes);
-app.use((req,res)=>{
-    return res.render('404');
-})
 
 // Ana sayfa
 

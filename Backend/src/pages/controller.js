@@ -4,11 +4,20 @@ const pool = require("../../db.js");
 
 const getMainPage = (req, res) => {
     const username = req.session ? req.session.username : "";
-    res.render('index', {username: username, msg:req.msg}); // index.ejs dosyasını render et
+    const msg = "";
+    return res.render('index', {username: username, msg :msg});
 };
 
 const routeMain = (req, res) => {
-    res.redirect('/'); // / adresine yönlendirme yap
+    if(req.msg){
+        const username = req.session ? req.session.username : "";
+        const msg = req.msg ? req.msg : "";
+        return res.render('index', {username: username, msg :msg}); 
+    }
+    else{
+        res.redirect('/'); // / adresine yönlendirme yap
+    }
+    
 };
 
 const getBooksPage = (req, res) => {
@@ -64,7 +73,6 @@ const loginSucces = (req, res, next) => {
     req.msg = "Cikis basarili";
     next();
 };
-
 
 module.exports = {
     getMainPage,

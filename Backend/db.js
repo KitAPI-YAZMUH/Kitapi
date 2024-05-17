@@ -72,8 +72,7 @@ pool.query(
                     kitap_durum integer,
                     ekleme_zamani date,
                     kitap_adi text,
-                    yazar_adi text,
-                    resim_url text
+                    yazar_adi text
                 );`,
                 (error, results) => {
                     if (error) {

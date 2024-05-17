@@ -39,7 +39,7 @@
     <%- include('partials/header', { activePage: 'home' }) %>
 
         <!-- Modal Search Start -->
-        <!-- <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content rounded-0">
                     <div class="modal-header">
@@ -56,7 +56,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <!-- Modal Search End -->
 
         <!-- Hero Start -->
@@ -66,7 +66,7 @@
                     <div class="col-md-12 col-lg-12">
 
 
-                        <h4 class="mb-3 text-secondary">Yeni ori Kitabınla Tanış</h4>
+                        <h4 class="mb-3 text-secondary">Yeni Hayal Kitabınla Tanış</h4>
                         <h1 class="mb-5 display-3 text-primary">
                             Hayallerinizdeki Kitapları Keşfedin!
                         </h1>
@@ -152,6 +152,7 @@
         <script>
 
         document.addEventListener("DOMContentLoaded", function() {
+            console.log("<%= msg %>");
             var popupMsg = "<%= msg %>"; // Sunucudan gelen mesajı al
             if (popupMsg.trim() !== "") { // Mesaj boş değilse pop-up göster
                 var newPopup = document.createElement('div');
