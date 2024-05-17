@@ -55,7 +55,7 @@ app.use('/', showPages, userRoutes, chatRoutes);
 app.use('/book', bookRoutes);
 
 app.use((req,res)=>{ // olmayan bir sayfa arandığında burası çalışacak. en alta koymak gerekli bunu
-    return res.render('404');
+    return res.render('404',{username:req.session.username});
 })
 
 // Sunucu belirlenen portta çalıştırılır
