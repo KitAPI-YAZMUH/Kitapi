@@ -8,6 +8,12 @@ const { cookie } = require('request');
 // Kayıt olma işlemi
 const signup = async (req, res) => {
     const { username, surname, email, password } = req.body; // Gelen istekten kullanıcı bilgileri alınır
+
+    // Şifrenin en az 6 karakter içerip içermediğini kontrol edilir
+    if (password.length < 6) {
+        return res.status(400).send({"msg": "Şifre en az 6 karakter içermelidir"});
+    }
+
     // Kullanıcı şifresi hashlenir
     const hashedPassword = crypto.SHA256(password).toString();
     const kayıtQuery = 'INSERT INTO users (username, surname, email, password) VALUES ($1, $2, $3, $4)';
