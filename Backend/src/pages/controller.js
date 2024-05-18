@@ -17,9 +17,18 @@ const getBooksPage = (req, res) => {
 };
 
 const getCartsPage = async (req, res) => {
-        const results = await pool.query(getBooksList, [888, 1]);
+        let value;
+        if(req.params.id){
+            console.log(req.params.id);
+            value = req.params.id;
+        }
+        else{
+            value = 1;
+        }
+        const results = await pool.query(getBooksList, [req.session.userId,value]);
         const books = results.rows;
-        res.render('cart',{value:1,books:books, username: req.session.username});
+        console.log(books, "Merhabalar");
+        res.render('cart',{value:value ,books:books, username: req.session.username});
 };
 
 const getPromptPage = (req, res) => {

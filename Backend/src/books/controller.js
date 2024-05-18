@@ -61,7 +61,7 @@ const addToReadingList = (req, res) => {
         if (kitapVar) {
             return res.status(200).send({ success: false });
         }
-        pool.query(addBookById, [id, userId, 3, tarih, req.body.volumeInfo.title, req.body.volumeInfo.authors[0],req.body.volumeInfo.imageLinks.thumbnail], (error,
+        pool.query(addBookById, [id, userId, 1, tarih, req.body.volumeInfo.title, req.body.volumeInfo.authors[0],req.body.volumeInfo.imageLinks.thumbnail], (error,
             results) => {
             if (error) {
                 return res.status(200).send({ success: false });

@@ -18,14 +18,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -75,18 +75,18 @@
 
                                 <div class="list-time fr">
                                     <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button" value="1" onclick="getBooksByStatus(event,1)">
-                    Okudum
+                    Okuyorum
                   </button>
                                     <a href="cart"></a>
                                     &nbsp;<span id="readlist-type-total-1"></span></button>
 
                                     <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button" value="2" onclick="getBooksByStatus(event,2)">
-                    Okuyorum
+                    Okuyacağım
                   </button>
                                     <a href="cart"></a>
                                     &nbsp;<span id="readlist-type-total-1"></span></button>
                                     <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button" value="3" onclick="getBooksByStatus(event,3)">
-                    Okuyacağım
+                    Okudum
                   </button>
                                     <a href="cart"></a>
                                     &nbsp;<span id="readlist-type-total-1"></span></button>
@@ -110,12 +110,12 @@
                             </tr>
                         </thead>
                         <tbody id = "booksTable">
-                            <% if (value == 1 && books) { %>
+                            <% if (value && books) { %>
                                 <% books.forEach(function(book) { %>
                                     <tr>
                                         <th scope="row">
                                             <div class="d-flex align-items-center">
-                                                <img src="<%= book.resim_url %>" class="img-fluid me-5" style="width: 124px; height: 200px" alt="" />
+                                                <a href="/book-details?id=<%= book.kitap_google_id %>"><img src="<%= book.resim_url %>" class="img-fluid me-5" style="width: 124px; height: 200px" alt="" /></a>
                                             </div>
                                         </th>
                                         <td>
@@ -164,12 +164,12 @@
             <!-- JavaScript Libraries -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-            <script src="lib/easing/easing.min.js"></script>
-            <script src="lib/waypoints/waypoints.min.js"></script>
-            <script src="lib/lightbox/js/lightbox.min.js"></script>
-            <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+            <script src="/lib/easing/easing.min.js"></script>
+            <script src="/lib/waypoints/waypoints.min.js"></script>
+            <script src="/lib/lightbox/js/lightbox.min.js"></script>
+            <script src="/lib/owlcarousel/owl.carousel.min.js"></script>
             <!-- Template Javascript -->
-            <script src="js/main.js"></script>
+            <script src="/js/main.js"></script>
             <script>
                 function getBooksByStatus(event, value) {
                     $.ajax({
@@ -182,7 +182,6 @@
                             // window.location.reload();
                             if (response && response.books) {
 
-                                console.log(response);
                                 var books = response.books; // Sunucudan gelen kitap verileri
                                 const tablo = document.querySelector('#booksTable');
                                 tablo.innerHTML = '';

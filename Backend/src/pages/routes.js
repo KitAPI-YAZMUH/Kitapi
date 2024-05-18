@@ -24,6 +24,7 @@ router.get('/', getMainPage)
 router.get('/index', routeMain)
 
 router.get('/kitaplik', authMiddleware,getBooksPage)
+router.get('/cart/:id',  authMiddleware,getCartsPage)
 router.get('/cart',  authMiddleware,getCartsPage)
 router.get('/prompt', authMiddleware, getPromptPage)
 router.get('/contact', getContactPage)
