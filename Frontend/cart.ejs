@@ -172,7 +172,6 @@
             <script src="js/main.js"></script>
             <script>
                 function getBooksByStatus(event, value) {
-                   
                     $.ajax({
                         type: "POST",
                         url: "/cart",
@@ -192,7 +191,7 @@
                                     tablo.innerHTML += `<tr>
                                         <th scope="row">
                                             <div class="d-flex align-items-center">
-                                                <img src = ${book.resim_url} class="img-fluid me-5" style="width: 124px; height: 200px" alt="" />
+                                                <a href="/book-details?id=${book.kitap_google_id}"><img src="${book.resim_url}" class="img-fluid me-5" style="width: 124px; height: 200px" alt="" /></a>
                                             </div>
                                         </th>
                                         <td>
