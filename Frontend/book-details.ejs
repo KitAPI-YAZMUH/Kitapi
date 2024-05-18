@@ -4,6 +4,24 @@
 <head>
   <meta charset="utf-8" />
   <title>Kitap Adı - Yazar</title>
+  <!-- Yeni eklenen veya düzenlenen CSS  -->
+       <style> .border.rounded {
+             display: flex;
+            justify-content: center; /* Yatayda ortalar */
+            align-items: center;     /* Dikeyde ortalar */
+            height: 100%;            /* Ebeveyn div'in yüksekliğini kapsar */
+            width: 100%;             /* Ebeveyn div'in genişliğini kapsar */
+            overflow: hidden;        /* Taşan içeriği gizler */
+        }
+
+        .border.rounded img {
+          width: 100%;             /* Resmi genişlik boyunca uzatır */
+          height: 100%;            /* Yükseklik oranını korur */
+          object-fit:cover;       /* Resmin kapsayıcıya tam oturmasını sağlar */
+          display: block;          /* Resmi blok seviyesinde gösterir */
+          
+      }
+    </style>
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <meta content="" name="keywords" />
   <meta content="" name="description" />
@@ -70,7 +88,7 @@
           <div class="col-lg-8 col-xl-9">
             <div class="row g-4">
               <div class="col-lg-6">
-                <div class="border rounded">
+                <div class="border rounded border.rounded">
                   <a href="#">
                     <img src="<%= imgURL %>" class="img-fluid rounded" alt="Image" />
                   </a>

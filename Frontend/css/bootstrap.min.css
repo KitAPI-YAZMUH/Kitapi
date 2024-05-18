@@ -1424,7 +1424,8 @@ progress {
 
     .col-lg-6 {
         flex: 0 0 auto;
-        width: 50%
+        width: 50%;
+        
     }
 
     .col-lg-7 {
@@ -8474,7 +8475,7 @@ fieldset:disabled .btn {
 }
 
 .rounded {
-    border-radius: 10px !important
+    border-radius: 0px !important
 }
 
 .rounded-0 {
