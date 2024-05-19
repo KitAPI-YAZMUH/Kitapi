@@ -19,6 +19,7 @@ pool.query(
     );`,
     (error, results) => {
         if (error) {
+            
             console.error('Tablo varlığı kontrol edilirken bir hata oluştu:', error);
             return;
         }

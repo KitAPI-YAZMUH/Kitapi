@@ -47,6 +47,7 @@ const addToReadingList = (req, res) => {
 
     const { id } = req.body; // KİTABIN unique id sini çeker.
     const userId = req.session.userId;
+    console.log(req.body);
 
     const currentDate = new Date();
     const day = currentDate.getDate();
@@ -61,7 +62,17 @@ const addToReadingList = (req, res) => {
         if (kitapVar) {
             return res.status(200).send({ success: false });
         }
-        pool.query(addBookById, [id, userId, 1, tarih, req.body.volumeInfo.title, req.body.volumeInfo.authors[0],req.body.volumeInfo.imageLinks.thumbnail], (error,
+        let thumbnaiL;
+        if("imageLinks" in req.body.volumeInfo){ //  bazi kitaplarda resim olmadiginda ekiyordu ama imageLinksi olmayan kitaplar bulduk
+            // onun icin duzenleme yapildi - ibrahimburak
+            thumbnaiL = req.body.volumeInfo.imageLinks.thumbnail;
+            console.log(thumbnaiL);
+        }
+        else{
+            thumbnaiL = "";
+            console.log(thumbnaiL)
+        }
+        pool.query(addBookById, [id, userId, 1, tarih, req.body.volumeInfo.title, req.body.volumeInfo.authors[0],thumbnaiL], (error,
             results) => {
             if (error) {
                 return res.status(200).send({ success: false });
