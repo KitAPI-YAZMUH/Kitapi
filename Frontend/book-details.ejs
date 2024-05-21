@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Kitap Adı - Yazar</title>
+  <title><%= title %></title>
   <!-- Yeni eklenen veya düzenlenen CSS  -->
        <style> .border.rounded {
              display: flex;
@@ -79,7 +79,9 @@
     <!-- Modal Search End -->
 
     <!-- Single Page Header start -->
-    <div class="container-fluid page-header py-5"></div>
+    <div class="container-fluid page-header py-5">
+      <h1 class="text-center text-white display-6">Arama -> <%= title %></h1>
+  </div>
     <!-- Single Page Header End -->
 
     <!-- Single Product Start -->
@@ -98,7 +100,7 @@
               <div class="col-lg-6">
                 <h4 class="fw-bold mb-3"><%= title %></h4>
                 <p class="mb-3"><%= author %></p>
-                <h5 class="fw-bold mb-3"><%= publisher %></h5>
+                <h6 class="fw-bold mb-3"><%= publisher %></h6>
                 <div class="d-flex mb-4">
                   <i class="fa fa-star text-secondary"></i>
                   <i class="fa fa-star text-secondary"></i>
@@ -120,11 +122,6 @@
                       aria-selected="true">
                       Açıklama
                     </button>
-                    <button class="nav-link border-white border-bottom-0" type="button" role="tab" id="nav-mission-tab"
-                      data-bs-toggle="tab" data-bs-target="#nav-mission" aria-controls="nav-mission"
-                      aria-selected="false">
-                      Yorumlar
-                    </button>
                   </div>
                 </nav>
                 <div class="tab-content mb-5">
@@ -137,100 +134,51 @@
                         <div class="col-6">
                           <div class="row bg-light align-items-center text-center justify-content-center py-2">
                             <div class="col-6">
-                              <p class="mb-0">Kategori</p>
+                              <h6 class="mb-0">Kategori:</h6>
                             </div>
                             <div class="col-6">
                               <p class="mb-0">
-                                kategori yazılacak
+                                <%- categories%>
                               </p>
                             </div>
                           </div>
                           <div class="row text-center align-items-center justify-content-center py-2">
                             <div class="col-6">
-                              <p class="mb-0">Basım Yılı</p>
+                              <h6 class="mb-0">Basım Yılı:</h6>
                             </div>
                             <div class="col-6">
-                              <p class="mb-0">publisheddate ile</p>
+                              <p class="mb-0"><%- publishedDate%></p>
                             </div>
                           </div>
                           <div class="row bg-light text-center align-items-center justify-content-center py-2">
                             <div class="col-6">
-                              <p class="mb-0">ISBN</p>
+                              <h6 class="mb-0">ISBN:</h6>
                             </div>
                             <div class="col-6">
-                              <p class="mb-0">9786053322122</p>
+                              <p class="mb-0">9789750806452</p>
                             </div>
                           </div>
                           <div class="row text-center align-items-center justify-content-center py-2">
                             <div class="col-6">
-                              <p class="mb-0">Sayfa Sayısı</p>
+                              <h6 class="mb-0">Sayfa Sayısı:</h6>
                             </div>
                             <div class="col-6">
-                              <p class="mb-0">448 (DÜZELTİLECEKKKKK) </p>
+                              <p class="mb-0"><%- pageCount%></p>
                             </div>
                           </div>
                           <div class="row bg-light text-center align-items-center justify-content-center py-2">
                             <div class="col-6">
-                              <p class="mb-0">Dil</p>
+                              <h6 class="mb-0">Dil:</h6>
                             </div>
                             <div class="col-6">
-                              <p class="mb-0">Türkçe BU DA DÜZELTİLECEK</p>
+                              <p class="mb-0"><%- language%></p>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
-                    <div class="d-flex">
-                      <img src="img/avatar.jpg" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px"
-                        alt="" />
-                      <div class="">
-                        <p class="mb-2" style="font-size: 14px">
-                          March 24, 2024
-                        </p>
-                        <div class="d-flex justify-content-between">
-                          <h5>kitap_severr</h5>
-                          <div class="d-flex mb-3">
-                            <i class="fa fa-star text-secondary"></i>
-                            <i class="fa fa-star text-secondary"></i>
-                            <i class="fa fa-star text-secondary"></i>
-                            <i class="fa fa-star text-secondary"></i>
-                            <i class="fa fa-star"></i>
-                          </div>
-                        </div>
-                        <p>
-                          Hayatımda okuduğum ve en çok etkilendiğim ilk 3
-                          kitabın arasında yerini aldı. Kitabı elinizden
-                          bırakmadan okuyorsunuz. Olağanüstü bir eser olmuş.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="d-flex">
-                      <img src="img\avatar.jpg" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px"
-                        alt="" />
-                      <div class="">
-                        <p class="mb-2" style="font-size: 14px">
-                          July 10, 2023
-                        </p>
-                        <div class="d-flex justify-content-between">
-                          <h5>bheabde</h5>
-                          <div class="d-flex mb-3">
-                            <i class="fa fa-star text-secondary"></i>
-                            <i class="fa fa-star text-secondary"></i>
-                            <i class="fa fa-star text-secondary"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                          </div>
-                        </div>
-                        <p class="text-dark">
-                          Bu yaz okuduğum en güzel kitaptı. 
-                          Bu yazarın geri kalan kitaplarını da okumak için sabırsızlanıyorum.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
+
                 </div>
               </div>
               <form action="#">
