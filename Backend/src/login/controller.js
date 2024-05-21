@@ -17,7 +17,7 @@ const signup = async (req, res) => {
     // Kullanıcı şifresi hashlenir
     const hashedPassword = crypto.SHA256(password).toString();
     const kayıtQuery = 'INSERT INTO users (username, surname, email, password) VALUES ($1, $2, $3, $4)';
-    const kontrolQuery = 'SELECT * FROM users WHERE (username = $1 AND email = $2)'; 
+    const kontrolQuery = 'SELECT * FROM users WHERE (username = $1 and email = $2)'; 
     // PostgreSQL veritabanına yeni kullanıcı eklenir
     pool.query(kontrolQuery,[username,email], (error,results)=>{
         if(error) throw error;

@@ -128,17 +128,23 @@
                                             <p class="mb-0 mt-4"><%= book.kitap_adi %></p>
                                         </td>
                                         <td>
-                                            <button class="btn btn-md rounded-circle bg-light border mt-4">
-                                                <i class="fa text-danger">Okuyorum</i>
-                                            </button>
-                                            <button class="btn btn-md rounded-circle bg-light border mt-4">
-                                                <i class="fa text-success">Okuyacağım</i>
-                                            </button>
                                             
-                                                <button class="btn btn-md rounded-circle bg-light border mt-4" >
-                                                    <i class="fa fa-times text-danger">Listeden Kaldır</i>
-                                                </button>
-                                            
+                                    <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="2" onclick="changeBookStatus(event,'<%= book.kitap_google_id %>',2)" >
+                                        <i class="fa fa-book-open text-success"></i>
+                                        <i>Okuyacağım</i>
+                                    </button>
+                                </td>
+                                <td>
+                                    
+                                    <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="3" onclick="changeBookStatus(event,'<%= book.kitap_google_id %>',3)">
+                                        <i class="fa fa-check text-success"></i>
+                                        <i>Okudum</i>
+                                    </button>
+                                    <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="4" onclick="changeBookStatus(event,'<%= book.kitap_google_id %>',4)" >
+                                        <i class="fa fa-times text-danger"></i>
+                                        <i>Listeden Kaldır</i>
+                                    </button>
+                                           
                                         </td>
                                         
                                     </tr>
@@ -186,45 +192,156 @@
                                 const tablo = document.querySelector('#booksTable');
                                 tablo.innerHTML = '';
                                 response.books.forEach(book => {
-
-                                    tablo.innerHTML += `<tr>
-                                        <th scope="row">
-                                            <div class="d-flex align-items-center">
-                                                <a href="/book-details?id=${book.kitap_google_id}"><img src="${book.resim_url}" class="img-fluid me-5" style="width: 124px; height: 200px" alt="" /></a>
-                                            </div>
-                                        </th>
-                                        <td>
-                                            <p class="mb-0 mt-4"> ${book.kitap_adi} </p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0 mt-4"> ${book.yazar_adi} </p>
-                                        </td>
-                                        <td>
-                                            <p class="mb-0 mt-4"> ${book.kitap_adi} </p>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-md rounded-circle bg-light border mt-4" >
-                                        <i class="fa fa-book-open text-success"></i>
-                                        <i>Okuyorum</i>
-                                    </button>
-                                    <button class="btn btn-md rounded-circle bg-light border mt-4" >
-                                        <i class="fa fa-check text-success"></i>
-                                        <i>Okudum</i>
-                                    </button>
-                                        </td>
-                                        <td>
-                                           
-                                    <button class="btn btn-md rounded-circle bg-light border mt-4" >
-                                        <i class="fa fa-times text-danger"></i>
-                                        <i>Listeden Kaldır</i>
-                                    </button>
-                                           
-                                        </td>
-                                    </tr>`
+                                    
+                                    if(response.value == 1){
+                                        tablo.innerHTML += `<tr>
+                                            <th scope="row">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="/book-details?id=${book.kitap_google_id}"><img src="${book.resim_url}" class="img-fluid me-5" style="width: 124px; height: 200px" alt="" /></a>
+                                                </div>
+                                            </th>
+                                            <td>
+                                                <p class="mb-0 mt-4"> ${book.kitap_adi} </p>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0 mt-4"> ${book.yazar_adi} </p>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0 mt-4"> ${book.kitap_adi} </p>
+                                            </td>
+                                            <td>
+                                                
+                                        <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="2" onclick="changeBookStatus(event, '${book.kitap_google_id}',2)" >
+                                            <i class="fa fa-book-open text-success"></i>
+                                            <i>Okuyacağım</i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        
+                                        <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="3" onclick="changeBookStatus(event,'${book.kitap_google_id}',3)">
+                                            <i class="fa fa-check text-success"></i>
+                                            <i>Okudum</i>
+                                        </button>
+                                        <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="4" onclick="changeBookStatus(event,'${book.kitap_google_id}',4)" >
+                                            <i class="fa fa-times text-danger"></i>
+                                            <i>Listeden Kaldır</i>
+                                        </button>
+                                               
+                                            </td>
+                                        </tr>`
+                                    }
+                                    else if(response.value == 2){
+                                        tablo.innerHTML += `<tr>
+                                            <th scope="row">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="/book-details?id=${book.kitap_google_id}"><img src="${book.resim_url}" class="img-fluid me-5" style="width: 124px; height: 200px" alt="" /></a>
+                                                </div>
+                                            </th>
+                                            <td>
+                                                <p class="mb-0 mt-4"> ${book.kitap_adi} </p>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0 mt-4"> ${book.yazar_adi} </p>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0 mt-4"> ${book.kitap_adi} </p>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="1" onclick="changeBookStatus(event, '${book.kitap_google_id}',1)" >
+                                            <i class="fa fa-book-open text-success"></i>
+                                            <i>Okuyorum</i>
+                                        </button>
+                                        
+                                    </td>
+                                    <td>
+                                        
+                                        <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="3" onclick="changeBookStatus(event,'${book.kitap_google_id}',3)">
+                                            <i class="fa fa-check text-success"></i>
+                                            <i>Okudum</i>
+                                        </button>
+                                        <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="4" onclick="changeBookStatus(event,'${book.kitap_google_id}',4)" >
+                                            <i class="fa fa-times text-danger"></i>
+                                            <i>Listeden Kaldır</i>
+                                        </button>
+                                               
+                                            </td>
+                                        </tr>`
+                                    }
+                                    else if(response.value == 3){
+                                        tablo.innerHTML += `<tr>
+                                            <th scope="row">
+                                                <div class="d-flex align-items-center">
+                                                    <a href="/book-details?id=${book.kitap_google_id}"><img src="${book.resim_url}" class="img-fluid me-5" style="width: 124px; height: 200px" alt="" /></a>
+                                                </div>
+                                            </th>
+                                            <td>
+                                                <p class="mb-0 mt-4"> ${book.kitap_adi} </p>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0 mt-4"> ${book.yazar_adi} </p>
+                                            </td>
+                                            <td>
+                                                <p class="mb-0 mt-4"> ${book.kitap_adi} </p>
+                                            </td>
+                                            <td>
+                                                <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="1" onclick="changeBookStatus(event, '${book.kitap_google_id}',1)" >
+                                            <i class="fa fa-book-open text-success"></i>
+                                            <i>Okuyorum</i>
+                                        </button>
+                                        <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="2" onclick="changeBookStatus(event, '${book.kitap_google_id}',2)" >
+                                            <i class="fa fa-book-open text-success"></i>
+                                            <i>Okuyacağım</i>
+                                        </button>
+                                    </td>
+                                    <td>
+                                        
+                                    
+                                        <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="4" onclick="changeBookStatus(event,'${book.kitap_google_id}',4)" >
+                                            <i class="fa fa-times text-danger"></i>
+                                            <i>Listeden Kaldır</i>
+                                        </button>
+                                               
+                                            </td>
+                                        </tr>`
+                                    }
+                                    
                                 });
                                 
                             } else {
                                 alert("Kitap bulunamadı.");
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("Ajax hatası:", error);
+                            alert("Ajax hatası: " + error);
+                        }
+                    });
+                }
+
+                function changeBookStatus(event, bookId, status) {
+                    event.preventDefault();
+
+                    console.log(bookId);
+                    $.ajax({
+                        type: "POST",
+                        url: "/book/cart",
+                        data: {
+                            bookId: bookId,
+                            status: parseInt(status),
+                            value : 5,
+    
+                        },
+                        success: function(response) {
+                           
+                            if (response.success) {
+                                alert("Kitap durumu başarıyla güncellendi.");
+                                
+                                
+                                window.location.reload();
+                                // Burada isteğe göre sayfayı yenileyebilirsiniz veya başka bir işlem yapabilirsiniz
+                            } else {
+                               
+                                alert("Kitap durumu güncellenirken bir hata oluştu.");
                             }
                         },
                         error: function(xhr, status, error) {

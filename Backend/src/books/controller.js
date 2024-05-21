@@ -4,6 +4,26 @@ const pool = require("../../db.js");
 const { addBookById, getBookByGoogleId } = require("./queries.js");
 
 
+
+const changeBookStatus = (req, res) => {
+    console.log("sıkıntı yok",req.body)
+
+    try {
+        const { bookId, status } = req.body;
+
+        if(status == 4){
+            pool.query("DELETE FROM kitap_listelerim WHERE kitap_google_id = $1 AND kullanici_id = $2",[bookId,req.session.userId]);
+        }
+
+        pool.query("UPDATE kitap_listelerim SET kitap_durum = $1 WHERE kitap_google_id = $2 AND kullanici_id = $3", [status, bookId, req.session.userId])
+        
+        res.status(200).send({ success: true, status});
+    } catch (error) {
+        console.log("sıkıntı yok2",req.body)
+        res.status(500).send({ success: false, error: "Kitap durumu güncellenirken bir hata oluştu" });
+    }
+};
+
 const getBookById = (req, res, next) => {
     const bookGoogleId = req.query.id;
     
@@ -20,7 +40,6 @@ const getBookById = (req, res, next) => {
             const theBook = body ? body : "";
 
             if(theBook !== ""){
-                console.log("Kitap bilgileri : \n", theBook);
                 req.bookTitle = theBook.volumeInfo.title;
                 req.author = theBook.volumeInfo.authors[0];
                 req.publisher = theBook.volumeInfo.publisher;
@@ -141,4 +160,4 @@ const changeBooksCategoryInReadingList = (req, res) => {
 
 
 
-module.exports = {addToReadingList, searchTheBook,getBookById };
+module.exports = {addToReadingList, searchTheBook, getBookById, changeBookStatus };

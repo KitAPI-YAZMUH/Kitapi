@@ -15,21 +15,20 @@ const getBooksPage = (req, res) => {
 };
 
 const getCartsPage = async (req, res) => {
-  let value;
-  if (req.params.id) {
-    console.log(req.params.id);
-    value = req.params.id;
-  } else {
-    value = 2;
-  }
-  const results = await pool.query(getBooksList, [req.session.userId, value]);
-  const books = results.rows;
-  
-  res.render("cart", {
-    value: value,
-    books: books,
-    username: req.session.username,
-  });
+
+        let value;
+        if(req.params.id){
+            console.log(req.params.id);
+            value = req.params.id;
+        }
+        else{
+            value = 1;
+        }
+        const results = await pool.query(getBooksList, [req.session.userId,value]);
+        const books = results.rows;
+        
+        res.render('cart',{value:value ,books:books, username: req.session.username});
+
 };
 
 const getPromptPage = (req, res) => {
