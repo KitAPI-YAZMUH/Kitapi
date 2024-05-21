@@ -20,11 +20,11 @@ const getCartsPage = async (req, res) => {
     console.log(req.params.id);
     value = req.params.id;
   } else {
-    value = 1;
+    value = 2;
   }
   const results = await pool.query(getBooksList, [req.session.userId, value]);
   const books = results.rows;
-  console.log(books, "Merhabalar");
+  
   res.render("cart", {
     value: value,
     books: books,
