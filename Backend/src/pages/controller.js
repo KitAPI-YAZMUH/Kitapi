@@ -27,7 +27,7 @@ const getCartsPage = async (req, res) => {
         }
         const results = await pool.query(getBooksList, [req.session.userId,value]);
         const books = results.rows;
-        console.log(books, "Merhabalar");
+        
         res.render('cart',{value:value ,books:books, username: req.session.username});
 };
 
