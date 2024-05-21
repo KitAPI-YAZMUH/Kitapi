@@ -45,6 +45,12 @@ const getBookById = (req, res, next) => {
                 req.publisher = theBook.volumeInfo.publisher;
                 req.bookDesc = theBook.volumeInfo.description;
                 req.imgURL = theBook.volumeInfo.imageLinks.thumbnail;
+                req.categories = theBook.volumeInfo.categories;
+                req.publishedDate = theBook.volumeInfo.publishedDate;
+                req.pageCount = theBook.volumeInfo.pageCount;
+                req.language = theBook.volumeInfo.language;
+
+       
                 next();
             }
             else{
