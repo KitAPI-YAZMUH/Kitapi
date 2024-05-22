@@ -705,7 +705,7 @@ body {
   
   padding: 1px;
   border-radius: 20px;
- 
+  
   
   
 }
@@ -724,9 +724,17 @@ p {
   font-size: 16px;
   margin-bottom: 50px;
 }
-
+.background-frame {
+  border: 2px solid black; /* Siyah çerçeve */
+  background-color: #000; /* Arka plan rengi siyah */
+  padding: 20px; /* İçeriden biraz boşluk */
+  box-sizing: border-box; /* Çerçeve dahil boyutlandırma */
+  margin: 0 auto; /* Ortala */
+  max-width: 80%; /* Genişliği azalt */
+  border-radius: 15px; /* Köşeleri ovalleştir */
+}
 .mesajlar {
-  border: 2px solid #000000;
+  border: 5px solid #000000;
   padding: 20px;
   border-radius: 15px;
   height: 380px;
@@ -737,7 +745,7 @@ p {
 
 .kullanici-mesaji {
   background-color: #8b5cf6;
-  width: 400px;
+  width: 500px;
   color:white;
   padding: 10px;
   margin-bottom: 35px;
@@ -748,7 +756,7 @@ p {
 
 .ai-mesaji {
   background-color: #2b2727;
-  width: 400px;
+  width: 600px;
   padding: 10px;
   margin-bottom: 25px;
   border-radius: 15px;
@@ -784,6 +792,7 @@ p {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+  
 }
 
 .custom-popup {

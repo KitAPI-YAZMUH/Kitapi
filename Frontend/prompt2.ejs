@@ -2,23 +2,25 @@
 <html>
 <head>
   <title>Chatbot</title>
+ 
   <style>
-    body {
+    
+    /* body {
       font-family: sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
       background-color: #f0f0f0;
-    }
+    } */
 
-    #chat-container {
+    /* #chat-container {
       background-color: #fff;
       border-radius: 10px;
       padding: 20px;
       box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
       width: 1000px;
-    }
+    } */
 
     h1 {
       text-align: center;
@@ -30,7 +32,7 @@
       overflow-y: scroll;
     }
 
-    .user-message {
+    /* .user-message {
       text-align: right;
       padding: 10px;
       background-color: #f0f0f0;
@@ -44,19 +46,49 @@
       background-color: #e0f0e0;
       border-radius: 10px;
       margin-bottom: 5px;
-    }
+    } */
 
-    form {
+    /* form {
       display: flex;
-    }
+    } */
 
-    input {
+    /* input {
       flex-grow: 1;
       margin-right: 10px;
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
-    }
+    } */
+    ::-webkit-scrollbar {
+            width: 12px; /* Scrollbar genişliği */
+        }
+
+        /* Scrollbar arka planı */
+        ::-webkit-scrollbar-track {
+            background: transparent; /* Track rengi */
+            border-radius: 10px; /* Köşeleri ovalleştir */
+        }
+
+        /* Scrollbar Thumb (kayan kısım) */
+        ::-webkit-scrollbar-thumb {
+            background: #888888; /* Thumb rengi */
+            border-radius: 10px; /* Köşeleri ovalleştir */
+            border: 1px solid #f1f1f125; /* Thumb'un etrafındaki boşluk */
+        }
+
+        /* Scrollbar Thumb hover durumu */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555555; /* Hover durumunda Thumb rengi */
+        }
+        .kit {
+            color: #fff;
+        }
+        .api {
+            color: #c7f10b;
+        }
+        .container {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
     .gonderbutton {
       background-color: #4b1b94;
@@ -73,8 +105,9 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-    }
+    } 
   </style>
+
 
 <!-- Google Web Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -98,14 +131,27 @@
 </head>
 <body>
   <%- include('partials/header', { activePage: '#' }) %>
-  <div id="chat-container">
-    <h1>Kitapi-Bot</h1>
-    <div id="chat-history"></div>
-    <form id="chat-form">
-      <input type="text" id="user-input" placeholder="Enter your message">
-      <button type="submit">Gönder</button>
-    </form>
-  </div>
+  <div class="container-fluid py-2 mb-7 promt-header background-frame">
+    <div class="container py-20">
+        <div class="row g-5 align-items-center">
+            <div class="position-relative mx-auto">
+                <div id="sohbet-alani">
+                  <h1 class="container"><span class="kit">Kit</span><span class="api">API</span><span class="kit"> - Bot</span></h1>
+                    <div id="chat-history">
+                      <div class="ai-mesaji">Merhaba👋 Ben KitAPI-Bot📓 İster sürükleyici bir macera romanı, ister dokunaklı bir aşk hikayesi, ister bilgi dolu bir tarih kitabı arıyor ol; senin hayallerinideki kitapları keşfetmen için burdayım.🕵️‍♂️ Hazırsan, kitap dünyasının kapılarını aralamaya başlayalım! 📖✨ </div> <!--buraya istediğimiz sabit mesajı ekleyebiliriz-->
+                    </div>
+                    <form id="chat-form">
+                      <div class="position-relative mx-3 my-5">
+                        <input class="form-control border-2 border-secondary w-100 py-3 px-4 rounded-pill" type="text" id="user-input" placeholder="AI'ya sormak için buraya yaz.">
+                        <button class="gonderbutton btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 0" type="submit" disabled>Sohbet Et</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
   <div id="loader">
     <img src="loader.gif" width="150px" alt="Loading...">
   </div>
@@ -132,9 +178,10 @@
         const botMessage = data.response;
         console.log(botMessage)
         // Add chat message to the chat history
-        chatHistory.innerHTML += `<div class="user-message">${userMessage}</div>`;
-        chatHistory.innerHTML += `<div class="bot-message">${botMessage}</div>`;
-
+        
+        chatHistory.innerHTML += `<div class="kullanici-mesaji">${userMessage}</div>`;
+        chatHistory.innerHTML += `<div class="ai-mesaji">${botMessage}</div>`;
+        
         // Scroll to the bottom of the chat history
         chatHistory.scrollTop = chatHistory.scrollHeight;
       } catch (error) {
@@ -151,6 +198,18 @@
         loader.style.display = 'none'; // Hide the loader after the message is sent
       });;
     });
+    document.addEventListener("DOMContentLoaded", function() {
+            const userInput = document.getElementById("user-input");
+            const submitButton = document.querySelector(".gonderbutton");
+
+            userInput.addEventListener("input", function() {
+                if (userInput.value.trim() !== "") {
+                    submitButton.disabled = false;
+                } else {
+                    submitButton.disabled = true;
+                }
+            });
+        });
   </script>
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

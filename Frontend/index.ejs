@@ -95,41 +95,47 @@
 
                     <div class="wrapper">
                         <div class="title-text">
-                            <div class="title login">Giriş Yap</div>
+                            <div class="title login">Giriş Yap</div> <!--Başlıklar-->
                             <div class="title signup">Üye Ol</div>
                         </div>
                         <div class="form-container">
                             <div class="slide-controls">
                                 <input type="radio" name="slide" id="login" checked>
                                 <input type="radio" name="slide" id="signup">
-                                <label for="login" class="slide login">Login</label>
-                                <label for="signup" class="slide signup">Signup</label>
+                                <label for="login" class="slide login">Giriş Yap</label>
+                                <label for="signup" class="slide signup">Üye Ol</label>
                                 <div class="slider-tab"></div>
                             </div>
                             <div class="form-inner">
-                                <form action="/user/login" method="POST" class="login">
+                                <form action="/user/login" method="POST" class="login" >
                                     <div class="field">
-                                        <input type="email" name = "email" placeholder="Email Address" required>
+                                        <input type="email" name = "email" placeholder="E-Posta Adresi" required>
                                     </div>
                                     <div class="field">
-                                        <input type="password" name = "password" placeholder="Password" required>
+                                        <input type="password" name = "password" placeholder="Şifre" required>
                                     </div>
-                                    <div class="pass-link"><a href="#">Forgot password?</a></div>
+                                    <div class="pass-link"><a href="#">Şifreni mi unuttun?</a></div>
                                     <div class="field btn">
                                         <div class="btn-layer"></div>
                                         <input type="submit" value="Login">
                                     </div>
-                                    <div class="signup-link">Not a member? <a href="">Signup now</a></div>
+                                    <div class="signup-link">Üye değil misin? <a href="">Şimdi Üye Ol</a></div>
                                 </form>
                                 <form action="/user/signup" method="POST" class="signup">
                                     <div class="field">
-                                        <input type="text" placeholder="Email Address" required>
+                                        <input type="text"  name = "username" placeholder="İsim" required>
                                     </div>
                                     <div class="field">
-                                        <input type="password" placeholder="Password" required>
+                                        <input type="text"  name = "surname" placeholder="Soyisim" required>
                                     </div>
                                     <div class="field">
-                                        <input type="password" placeholder="Confirm password" required>
+                                        <input type="text"  name = "email" placeholder="E-Posta Adresi" required>
+                                    </div>
+                                    <div class="field">
+                                        <input type="password" name = "password" placeholder="Şifre" required>
+                                    </div>
+                                    <div class="field">
+                                        <input type="password" name = "doremi" placeholder="Şifreyi Onayla" required>
                                     </div>
                                     <div class="field btn">
                                         <div class="btn-layer"></div>
@@ -188,6 +194,26 @@
                     modal.show();
                 });
             });
+
+            document.addEventListener("DOMContentLoaded", function() {
+                var search = document.getElementById('giris');
+                var modal = new bootstrap.Modal(document.getElementById('promtModal'));
+
+                search.addEventListener('click', function() {
+                    modal.show();
+                });
+            });
+            document.addEventListener("DOMContentLoaded", function() {
+                var search = document.getElementById('uye');
+                var modal = new bootstrap.Modal(document.getElementById('promtModal'));
+
+                search.addEventListener('click', function() {
+                    modal.show();
+                });
+            });
+            
+
+            
 
 
             const loginText = document.querySelector(".title-text .login");
