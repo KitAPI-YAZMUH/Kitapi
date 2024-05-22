@@ -18,14 +18,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
@@ -37,7 +37,7 @@
     <!-- Spinner End -->
 
     <!-- Header -->
-    <%- include('partials/header', { activePage: 'books' }) %>
+    <%- include('partials/header', { activePage: '#' }) %>
         <!-- Modal Search Start -->
         <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
@@ -61,7 +61,7 @@
 
         <!-- Single Page Header start -->
         <div class="container-fluid page-header py-5">
-            <h1 class="text-center text-white display-6">Kitaplar</h1>
+            <h1 class="text-center text-white display-6">Popüler Kitaplar</h1>
         </div>
         <!-- Single Page Header End -->
 
@@ -73,8 +73,6 @@
                     <div class="col-lg-12">
                         <div class="row g-4">
                             <div class="col-xl-3">
-
-
 
                                 <!-- buraya form ekledik -->
                                 <form action="/book/kitapAra" method="post">
@@ -134,7 +132,7 @@
 
                                     <div class="col-lg-12 ">
                                         <div class="position-relative ">
-                                            <img src="img/books1.png " class="img-fluid w-100 rounded " alt=" " />
+                                            <img src="/img/books1.png " class="img-fluid w-100 rounded " alt=" " />
                                             <div class="position-absolute " style=" top: 50%; right: 10px; transform: translateY(-50%); ">
                                                 <h3 class="text-secondary fw-bold ">
                                                     Çok <br /> Satan <br /> Kitaplar
@@ -151,14 +149,14 @@
                                         <% books.forEach(book => { %>
                                             <div class="col-md-6 col-lg-6 col-xl-4 ">
                                                 <div class="rounded position-relative fruite-item ">
-                                                    <a href="book-details ">
+                                                    <a href="/book-details?id=<%= book.id %>">
                                                         <div class="fruite-img ">
-                                                            <img src="<%= book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : 'img/icerik-gorseli-bulunamadi-beyaz.png' %>" class="img-fluid w-100 rounded-top " alt="" />
+                                                            <img src="<%= book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? book.volumeInfo.imageLinks.thumbnail : '/img/icerik-gorseli-bulunamadi-beyaz.png' %>" class="img-fluid w-100 rounded-top " alt="" />
                                                         </div>
                                                     </a>
                                                     <div class="text-white bg-secondary px-3 py-1 rounded position-absolute " style="top: 10px; left: 10px "></div>
                                                     <div class="p-4 border border-secondary border-top-0 rounded-bottom ">
-                                                        <a href="book-details ">
+                                                        <a href="/book-details ">
                                                             <h4>
                                                                 <%= book.volumeInfo.title || 'Başlık bulunamadı' %>
                                                             </h4>
@@ -209,13 +207,13 @@
             <!-- JavaScript Libraries -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js "></script>
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js "></script>
-            <script src="lib/easing/easing.min.js "></script>
-            <script src="lib/waypoints/waypoints.min.js "></script>
-            <script src="lib/lightbox/js/lightbox.min.js "></script>
-            <script src="lib/owlcarousel/owl.carousel.min.js "></script>
+            <script src="/lib/easing/easing.min.js "></script>
+            <script src="/lib/waypoints/waypoints.min.js "></script>
+            <script src="/lib/lightbox/js/lightbox.min.js "></script>
+            <script src="/lib/owlcarousel/owl.carousel.min.js "></script>
 
             <!-- Template Javascript -->
-            <script src="js/main.js "></script>
+            <script src="/js/main.js"></script>
             <script>
 
                 function addMyList(event, book) {
@@ -257,7 +255,4 @@
                 }
             </script>
 </body>
-
-</html>
-
 </html>
