@@ -74,18 +74,18 @@
                             <td colspan="4">
 
                                 <div class="list-time fr">
-                                    <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button" value="1" onclick="getBooksByStatus(event,1)">
+                                    <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" data-active="true" data-color="#FFB524" type="button" value="1" onclick="getBooksByStatus(event,1)">
                     Okuyorum
                   </button>
                                     <a href="cart"></a>
                                     &nbsp;<span id="readlist-type-total-1"></span></button>
 
-                                    <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button" value="2" onclick="getBooksByStatus(event,2)">
+                                    <button class="btn border-secondary rounded-pill px-4 py-3 text-primary"data-active="true" data-color="#FFB524" type="button" value="2" onclick="getBooksByStatus(event,2)">
                     Okuyacağım
                   </button>
                                     <a href="cart"></a>
                                     &nbsp;<span id="readlist-type-total-1"></span></button>
-                                    <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button" value="3" onclick="getBooksByStatus(event,3)">
+                                    <button class="btn border-secondary rounded-pill px-4 py-3 text-primary"data-active="true" data-color="#FFB524" type="button" value="3" onclick="getBooksByStatus(event,3)">
                     Okudum
                   </button>
                                     <a href="cart"></a>
@@ -97,7 +97,7 @@
 
                 </table>
                 <div class="table-responsive">
-                    <h3 class="mb-4">Okudum Listem</h3>
+                    <h3 class="mb-4"></h3>
                     <table class="table">
                         <thead>
                             <tr>
@@ -133,13 +133,12 @@
                                         <i class="fa fa-book-open text-success"></i>
                                         <i>Okuyacağım</i>
                                     </button>
-                                </td>
-                                <td>
-                                    
                                     <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="3" onclick="changeBookStatus(event,'<%= book.kitap_google_id %>',3)">
                                         <i class="fa fa-check text-success"></i>
                                         <i>Okudum</i>
                                     </button>
+                                </td>
+                                <td>
                                     <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="4" onclick="changeBookStatus(event,'<%= book.kitap_google_id %>',4)" >
                                         <i class="fa fa-times text-danger"></i>
                                         <i>Listeden Kaldır</i>
@@ -215,13 +214,13 @@
                                             <i class="fa fa-book-open text-success"></i>
                                             <i>Okuyacağım</i>
                                         </button>
-                                    </td>
-                                    <td>
-                                        
                                         <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="3" onclick="changeBookStatus(event,'${book.kitap_google_id}',3)">
                                             <i class="fa fa-check text-success"></i>
                                             <i>Okudum</i>
                                         </button>
+                                    </td>
+                                    <td>
+                                        
                                         <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="4" onclick="changeBookStatus(event,'${book.kitap_google_id}',4)" >
                                             <i class="fa fa-times text-danger"></i>
                                             <i>Listeden Kaldır</i>
@@ -252,13 +251,14 @@
                                             <i>Okuyorum</i>
                                         </button>
                                         
-                                    </td>
-                                    <td>
-                                        
                                         <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="3" onclick="changeBookStatus(event,'${book.kitap_google_id}',3)">
                                             <i class="fa fa-check text-success"></i>
                                             <i>Okudum</i>
                                         </button>
+                                        
+                                    </td>
+                                    <td>
+                                        
                                         <button class="btn btn-md rounded-circle bg-light border mt-4" type="button" value="4" onclick="changeBookStatus(event,'${book.kitap_google_id}',4)" >
                                             <i class="fa fa-times text-danger"></i>
                                             <i>Listeden Kaldır</i>
@@ -350,6 +350,26 @@
                         }
                     });
                 }
+                const buttons = document.querySelectorAll('.btn');
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    buttons.forEach(btn => { // Tüm butonların rengini sıfırla
+      btn.style.backgroundColor = '';
+      btn.dataset.active = 'false';
+    });
+
+    if (button.dataset.active === 'true') {
+      button.style.backgroundColor = button.dataset.color;
+      button.dataset.active = 'false';
+    } else {
+      button.style.backgroundColor = button.dataset.color;
+      button.dataset.active = 'true';
+    }
+  });
+});
+
+;
             </script>
 </body>
 
