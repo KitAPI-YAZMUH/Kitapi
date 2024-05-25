@@ -8,17 +8,15 @@ KitAPI, kullanıcıların kitapları keşfetmelerine, listeler oluşturmalarına
 
 ## Proje Ekibi 
 
-  
+- **[Esranur SEVİLMİŞ](https://github.com/esranursevilmis):** Frontend Geliştirici 
 
-- **Esranur SEVİLMİŞ:** Frontend Geliştirici 
+- **[Burak ASLAN](https://github.com/aslanburak):** Frontend Geliştirici 
 
-- **Burak ASLAN:** Frontend Geliştirici 
+- **[Emirhan SESİGÜR](https://github.com/emirhansesigur):**  Full Stack Geliştirici 
 
-- **Emirhan SESİGÜR:**  Full Stack Geliştirici 
+- **[İbrahim AKSAN](https://github.com/ibrahmaksan):** Full Stack Geliştirici 
 
-- **İbrahim AKSAN:** Full Stack Geliştirici 
-
-- **Serdar AYVALI:** Full Stack Geliştirici 
+- **[Serdar AYVALI](https://github.com/Serdar-AYVALI):** Full Stack Geliştirici 
 
   
 
@@ -72,7 +70,10 @@ KitAPI, kullanıcıların kitapları keşfetmeleri, kişisel listeler oluşturma
 
 - **Kullanıcı Yönetimi:** Kullanıcılar, hesap oluşturabilir,  giriş yapabilir ve hesaplarını güncelleyebilirler. 
 
-  
+## Metodoloji  
+Yazılım geliştirmede MVC tarzı bir yol izledik.
+
+![metodoloji](https://raw.githubusercontent.com/KitAPI-YAZMUH/Kitapi/main/imgs/metodoloji.PNG)
 
 ## Kurulum 
 
