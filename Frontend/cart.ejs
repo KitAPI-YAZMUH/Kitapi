@@ -97,7 +97,7 @@
 
                 </table>
                 <div class="table-responsive">
-                    <h3 class="mb-4">Okudum Listem</h3>
+                    <h3 class="mb-4" id="listTitle" >Okuma Listem</h3>
                     <table class="table">
                         <thead>
                             <tr>
@@ -316,6 +316,24 @@
                             alert("Ajax hatası: " + error);
                         }
                     });
+
+                    let titleElement = document.getElementById('listTitle');
+            
+            // Duruma göre başlık metnini değiştir
+            switch (value) {
+                case 1:
+                    titleElement.innerText = 'Okuyorum';
+                    break;
+                case 2:
+                    titleElement.innerText = 'Okuyacağım';
+                    break;
+                case 3:
+                    titleElement.innerText = 'Okudum';
+                    break;
+                default:
+                    titleElement.innerText = 'Başlık Değişmedi';
+                    break;
+            }
                 }
 
                 function changeBookStatus(event, bookId, status) {
@@ -350,6 +368,8 @@
                         }
                     });
                 }
+                
+                
             </script>
 </body>
 

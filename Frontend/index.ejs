@@ -26,6 +26,71 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
+    <style>
+        /* Chat bot stil start */
+    
+        h1 {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+    
+        #chat-history {
+          height: 300px;
+          overflow-y: scroll;
+        }
+    
+       
+        ::-webkit-scrollbar {
+                width: 12px; /* Scrollbar genişliği */
+            }
+    
+            /* Scrollbar arka planı */
+            ::-webkit-scrollbar-track {
+                background: transparent; /* Track rengi */
+                border-radius: 10px; /* Köşeleri ovalleştir */
+            }
+    
+            /* Scrollbar Thumb (kayan kısım) */
+            ::-webkit-scrollbar-thumb {
+                background: #888888; /* Thumb rengi */
+                border-radius: 10px; /* Köşeleri ovalleştir */
+                border: 1px solid #f1f1f125; /* Thumb'un etrafındaki boşluk */
+            }
+    
+            /* Scrollbar Thumb hover durumu */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555555; /* Hover durumunda Thumb rengi */
+            }
+            .kit {
+                color: #fff;
+            }
+            .api {
+                color: #c7f10b;
+            }
+            .container {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+    
+        .gonderbutton {
+          background-color: #4b1b94;
+          color: white;
+          border: none;
+          padding: 10px 10px;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+        
+    
+        #loader {
+          display: none; /* Hide by default */
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        } 
+        
+        /* Chat bot stil END */
+      </style>
 </head>
 
 <body>
@@ -150,6 +215,99 @@
             </div>
         </div>
         </div>
+        <!--Chat Bot Modal Start-->
+<div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="max-width: 1200px;">
+        <!-- Login pencere genisligi -->
+        <div class="modal-content" style="max-height: 0px; heopacity: 0.8; background-color: rgba(255, 255, 255, 0.968);">
+  
+            
+            <div class="container-fluid py-2 mb-7 promt-header background-frame">
+              <div class="container py-20">
+                  <div class="row g-5 align-items-center">
+                      <div class="position-relative mx-auto">
+                          <div id="sohbet-alani">
+                            <h1 class="container"><span class="kit">Kit</span><span class="api">API</span><span class="kit"> - Bot</span></h1>
+                              <div id="chat-history">
+                                <div class="ai-mesaji">Merhaba👋 Ben KitAPI-Bot📓 İster sürükleyici bir macera romanı, ister dokunaklı bir aşk hikayesi, ister bilgi dolu bir tarih kitabı arıyor ol; senin hayallerinideki kitapları keşfetmen için burdayım.🕵️‍♂️ Hazırsan, kitap dünyasının kapılarını aralamaya başlayalım! 📖✨ </div> <!--buraya istediğimiz sabit mesajı ekleyebiliriz-->
+                              </div>
+                              <form id="chat-form">
+                                <div class="position-relative mx-3 my-1">
+                                  <input class="form-control border-2 border-secondary w-100 py-3 px-4 rounded-pill" type="text" id="user-input" placeholder="AI'ya sormak için buraya yaz.">
+                                  <button class="gonderbutton btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 0" type="submit" disabled>Sohbet Et</button>
+                              </div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+            <div id="loader">
+              <img src="loader.gif" width="150px" alt="Loading...">
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  
+  <script>
+    const chatHistory = document.getElementById('chat-history');
+    const userInput = document.getElementById('user-input');
+    const form = document.getElementById('chat-form');
+  
+    async function sendMessage() {
+      const userMessage = userInput.value;
+      userInput.value = ''; // Clear input field
+      console.log(userMessage)
+      try {
+        const response = await fetch('/prompt2', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ userInput: userMessage }),
+        });
+  
+        const data = await response.json();
+        console.log(data)
+        const botMessage = data.response;
+        console.log(botMessage)
+        // Add chat message to the chat history
+        
+        chatHistory.innerHTML += `<div class="kullanici-mesaji">${userMessage}</div>`;
+        chatHistory.innerHTML += `<div class="ai-mesaji">${botMessage}</div>`;
+        
+        // Scroll to the bottom of the chat history
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      } catch (error) {
+        console.error('Error:', error);
+        // Handle errors gracefully, e.g., display an error message to the user
+      }
+    }
+  
+    form.addEventListener('submit', (event) => {
+      event.preventDefault(); // Prevent form submission
+      const loader = document.getElementById('loader');
+      loader.style.display = 'block'; // Show the loader
+      sendMessage().finally(() => {
+        loader.style.display = 'none'; // Hide the loader after the message is sent
+      });;
+    });
+    document.addEventListener("DOMContentLoaded", function() {
+            const userInput = document.getElementById("user-input");
+            const submitButton = document.querySelector(".gonderbutton");
+  
+            userInput.addEventListener("input", function() {
+                if (userInput.value.trim() !== "") {
+                    submitButton.disabled = false;
+                } else {
+                    submitButton.disabled = true;
+                }
+            });
+        });
+  </script>
+  <!--Chat Bot Modal END-->
 
         <!-- Bootstrap JS Bundle -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
@@ -179,7 +337,7 @@
 
             document.addEventListener("DOMContentLoaded", function() {
                 var search = document.getElementById('search');
-                var modal = new bootstrap.Modal(document.getElementById('promtModal'));
+                var modal = new bootstrap.Modal(document.getElementById('chatModal'));
 
                 search.addEventListener('click', function() {
                     modal.show();

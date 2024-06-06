@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kayıt Ol</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="css/style.css" rel="stylesheet" />
     <!-- Harici stil dosyasını bağlama -->
 
     <script>
@@ -17,51 +17,44 @@
             }
             return true;
         }
+        
     </script>
 </head>
 
 <body>
-    <div class="signup-form">
-        <h2>Kayıt Ol</h2>
-        <p>Yeni bir hesap oluşturmak için bilgilerinizi girin.</p>
-
-        <!-- Kayıt formu -->
-        <form action="/user/signup" method="post" onsubmit="return validateForm()">
-            <div class="form-group">
-                <label for="username">Kullanıcı Adı:</label>
-                <!-- Kullanıcı adı alanı etiketi -->
-                <input type="text" id="username" name="username" required>
-                <!-- Kullanıcı adı giriş alanı -->
+    <div class="wrapper">
+        <div class="title-text">
+            
+            <div class="title signup">Üye Ol</div>
+        </div>
+        <div class="form-container">
+            
+            <div class="form-inner">
+               
+                <!--Giriş Kısmı-->
+                <form action="/user/signup" method="POST" class="signup">
+                    <div class="field">
+                        <input type="text"  name = "username" placeholder="İsim" required>
+                    </div>
+                    <div class="field">
+                        <input type="text"  name = "surname" placeholder="Soyisim" required>
+                    </div>
+                    <div class="field">
+                        <input type="text"  name = "email" placeholder="E-Posta Adresi" required>
+                    </div>
+                    <div class="field">
+                        <input type="password" name = "password" placeholder="Şifre" required>
+                    </div>
+                    
+                    <div class="field btn">
+                        <div class="btn-layer"></div>
+                        <input type="submit" value="Üye Ol">
+                    </div>
+                    <div class="signup-link">Zaten hesabınız var mı? <a href="/login">Giriş Yap</a></div>
+                </form>
+                
             </div>
-
-            <div class="form-group">
-                <label for="surname">Soyadı:</label>
-                <!-- Soyadı alanı etiketi -->
-                <input type="text" id="surname" name="surname" required>
-                <!-- Soyadı giriş alanı -->
-            </div>
-
-            <div class="form-group">
-                <label for="email">E-Posta Adresi:</label>
-                <!-- E-posta alanı etiketi -->
-                <input type="email" id="email" name="email" required>
-                <!-- E-posta giriş alanı -->
-            </div>
-
-            <div class="form-group">
-                <label for="password">Şifre:</label>
-                <!-- Şifre alanı etiketi -->
-                <input type="password" id="password" name="password" required>
-                <!-- Şifre giriş alanı -->
-            </div>
-
-            <button type="submit">Kayıt Ol</button>
-            <!-- Kayıt ol butonu -->
-        </form>
-
-        <p>Zaten hesabınız var mı? <a href="/login">Giriş Yap</a></p>
-        <!-- Giriş yap linki -->
-
+        </div>
     </div>
 </body>
 
