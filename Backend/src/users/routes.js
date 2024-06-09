@@ -6,7 +6,7 @@ const router = Router();
 
 router.post("/cart", getValue);
 router.get('/chackout', authMiddleware, getUserInfo);
-router.post('/checkout/:id', updateStudent);
+router.post('/chackout/:id', updateStudent);
 router.post('/forgot-password', resetPassword);
 router.get('/forgot-password', renderForgotPasswordPage); 
 
