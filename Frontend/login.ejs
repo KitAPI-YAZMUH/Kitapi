@@ -5,34 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Giriş Yap</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="css/style.css" rel="stylesheet" />
     <!-- Harici stil dosyasını bağlama -->
+    
 </head>
 
-<body>
-    <div class="login-form">
-        <h2>Giriş Yap</h2>
-        <p>Hesabınıza giriş yapmak için e-posta adresinizi ve şifrenizi girin.</p>
+<body >
 
-        <!-- Giriş formu -->
-        <form action="/user/login" method="post">
-            <label for="email">E-Posta Adresi:</label>
-            <!-- E-posta alanı etiketi -->
-            <input type="email" id="email" name="email" required>
-            <!-- E-posta giriş alanı -->
-
-            <label for="password">Şifre:</label>
-            <!-- Şifre alanı etiketi -->
-            <input type="password" id="password" name="password" required>
-            <!-- Şifre giriş alanı -->
-
-            <button type="submit">Giriş Yap</button>
-            <!-- Giriş yap butonu -->
-        </form>
-
-        <p>Hesabınız yok mu? <a href="/signup">Kayıt Ol</a></p>
-        <p>Şifrenizi mi unuttunuz? <a href="/forgot-password">Şifremi Unuttum</a></p>
+    <div class="wrapper">
+    <div class="title-text">
+        <div class="title login">Giriş Yap</div> <!--Başlıklar-->
+        
     </div>
+    <div class="form-container">
+                            
+        <div class="form-inner">
+            <form action="/user/login" method="POST" class="login" >
+                <div class="field">
+                    <input type="email" name = "email" placeholder="E-Posta Adresi" required>
+                </div>
+                <div class="field">
+                    <input type="password" name = "password" placeholder="Şifre" required>
+                </div>
+                <div class="pass-link"><a href="/forgot-password">Şifreni mi unuttun?</a></div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Giriş Yap">
+                </div>
+                <div class="signup-link">Üye değil misin? <a href="/signup">Şimdi Üye Ol</a></div>
+            </form>
+            <!--Giriş Kısmı-->
+            
+        </div>
+    </div>
+
 
 </body>
 

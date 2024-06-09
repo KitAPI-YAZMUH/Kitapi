@@ -181,6 +181,7 @@
 
 #searchModal .modal-content {
     background: rgba(255, 255, 255, 0.8);
+    
 }
 /*** Navbar End ***/
 
@@ -524,13 +525,21 @@
   background: #1a75ff;
   color: #fff;
 }
-.wrapper{
+.wrapper {
   overflow: hidden;
   max-width: 500px;
+  width: 100%; /* Genişlik %100 olsun */
+  max-height: 500px; /* Maksimum yükseklik */
+  height: auto; /* İçeriğe göre yükseklik */
   background: #ffffff;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Ekranın her zaman ortasında kalmasını sağlar */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box; /* Padding ve border dahil edilir */
 }
 .wrapper .title-text{
   display: flex;
