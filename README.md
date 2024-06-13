@@ -1,22 +1,23 @@
-# KitAPI  
+# KitAPI Projemizin Tanıtımı 
 
-  
+
 
 KitAPI, kullanıcıların kitapları keşfetmelerine, listeler oluşturmalarına ve yapay zeka destekli öneriler alarak okuma deneyimlerini zenginleştirmelerine yardımcı olan bir web uygulamasıdır. Bu proje, Yazılım Mühendisliği dersi kapsamında geliştirilmiştir. 
 
-  
+Projemizi tanıttığımız bir video hazırladık. [Buradan](https://youtu.be/4hCMBIs0D4Q) ulaşabilirsiniz.
+ 
 
 ## Proje Ekibi 
 
-- **[Esranur SEVİLMİŞ](https://github.com/esranursevilmis):** Frontend Geliştirici 
+- **[Esranur SEVİLMİŞ](https://github.com/esranursevilmis):** Frontend Geliştirme
 
-- **[Burak ASLAN](https://github.com/aslanburak):** Frontend Geliştirici 
+- **[Burak ASLAN](https://github.com/aslanburak):** Frontend Geliştirme
 
-- **[Emirhan SESİGÜR](https://github.com/emirhansesigur):**  Full Stack Geliştirici 
+- **[Emirhan SESİGÜR](https://github.com/emirhansesigur):**  Takım Koordinatürü, Backend Geliştirme, Veri Tabanı Tasarımı
 
-- **[İbrahim AKSAN](https://github.com/ibrahmaksan):** Full Stack Geliştirici 
+- **[İbrahim AKSAN](https://github.com/ibrahmaksan):** Backend Geliştirme, Veri Tabanı Tasarımı
 
-- **[Serdar AYVALI](https://github.com/Serdar-AYVALI):** Full Stack Geliştirici 
+- **[Serdar AYVALI](https://github.com/Serdar-AYVALI):** Backend Geliştirme
 
   
 
@@ -28,13 +29,23 @@ KitAPI, kullanıcıların kitapları keşfetmelerine, listeler oluşturmalarına
 
 KitAPI, kullanıcıların kitapları keşfetmeleri, kişisel listeler oluşturmaları ve yapay zeka destekli öneriler alarak okuma deneyimlerini zenginleştirmelerini sağlamak amacıyla geliştirilmiştir. Kullanıcılar, kitap detaylarını inceleyebilir, okuma listeleri oluşturabilir ve yapay zeka destekli öneriler alabilirler. 
 
+
+
+## Özellikler 
+
   
+
+- **Kitap Arama:** Kullanıcılar, Google Books API kullanarak kitap arayabilirler. 
+
+- **Kitap Detayları:** Kullanıcılar, kitapların detay sayfalarını inceleyebilirler. 
+
+- **Okuma Listeleri:** Kullanıcılar, okuma listeleri oluşturabilir ve yönetebilirler. 
+
+- **Yapay Zeka Destekli Öneriler:** Gemini AI API kullanılarak kullanıcılara kitap önerileri sunulur. 
+
+- **Kullanıcı Yönetimi:** Kullanıcılar, hesap oluşturabilir,  giriş yapabilir ve hesaplarını güncelleyebilirler. 
 
 ## Kullanılan Teknolojiler 
-
-  
-
-### Yazılım Teknolojileri 
 
   
 
@@ -54,21 +65,7 @@ KitAPI, kullanıcıların kitapları keşfetmeleri, kişisel listeler oluşturma
 
 - **EJS (Embedded JavaScript Templates):** Server tarafında HTML sayfaları oluşturmak için şablon motoru 
 
-  
 
-## Özellikler 
-
-  
-
-- **Kitap Arama:** Kullanıcılar, Google Books API kullanarak kitap arayabilirler. 
-
-- **Kitap Detayları:** Kullanıcılar, kitapların detay sayfalarını inceleyebilirler. 
-
-- **Okuma Listeleri:** Kullanıcılar, okuma listeleri oluşturabilir ve yönetebilirler. 
-
-- **Yapay Zeka Destekli Öneriler:** Gemini AI API kullanılarak kullanıcılara kitap önerileri sunulur. 
-
-- **Kullanıcı Yönetimi:** Kullanıcılar, hesap oluşturabilir,  giriş yapabilir ve hesaplarını güncelleyebilirler. 
 
 ## Metodoloji  
 Yazılım geliştirmede MVC tarzı bir yol izledik.
@@ -190,6 +187,3 @@ Bu proje MIT lisansı ile lisanslanmıştır. Daha fazla bilgi için `LICENSE` d
 
 Herhangi bir sorunuz veya geri bildiriminiz varsa, lütfen bizimle iletişime geçin. Destekleriniz için teşekkür ederiz! 💪 
 
-  
-
-``` 
